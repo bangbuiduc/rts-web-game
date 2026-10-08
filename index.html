@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#17211b" />
+    <meta name="description" content="RTS web game with an isometric world." />
+    <title>RTS Web Game – Isometric</title>
+  </head>
+  <body>
+    <main id="app" aria-label="RTS game">
+      <div id="game"></div>
+      <aside class="hud" aria-live="polite">
+        <div class="hud__title">STONE AGE RTS</div>
+        <div id="resource-info">Food: 200 · Wood: 200 · Dân số: 0/8</div>
+        <div id="tile-info">Di chuyển chuột trên bản đồ</div>
+        <div class="hud__help">Click trái: chọn · Kéo trái: khoanh vùng chọn · Click phải: ra lệnh (đi/đốn/hái/đánh) · Kéo phải: di chuyển bản đồ · Con lăn: thu phóng · Esc: bỏ chọn</div>
+      </aside>
+      <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+      <div id="command-panel" class="command-panel" aria-label="Bảng lệnh"></div>
+      <div id="banner" class="banner" role="alert"></div>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

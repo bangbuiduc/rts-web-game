@@ -44,6 +44,7 @@ import {
   updateHpBar,
 } from '../visuals.js';
 import { createCommandPanel } from '../ui/commandPanel.js';
+import { createMatchLog, downloadMatchLog, EVENT_TYPES } from '../matchLog.js';
 
 const DRAG_THRESHOLD = 5;
 
@@ -66,6 +67,7 @@ export class MapScene extends Phaser.Scene {
   }
 
   create() {
+    this.matchLog = createMatchLog();
     createTerrain(this, this.mapOriginX, this.mapOriginY);
     this.hoverGraphic = this.add.graphics().setDepth(5000);
     this.commandGraphic = this.add.graphics().setDepth(5001);
@@ -78,9 +80,11 @@ export class MapScene extends Phaser.Scene {
       onTrainVillager: () => this.trainFromSelection('villager'),
       onBuildBarracks: () => this.beginPlacement('barracks'),
       onTrainClubman: () => this.trainFromSelection('clubman'),
+      onExportLog: () => this.exportMatchLog(),
     });
 
     this.spawnInitialWorld();
+    this.logMatchStart();
 
     const bounds = mapPixelBounds();
     this.cameras.main.setBounds(0, 0, bounds.width, bounds.height);
@@ -295,6 +299,15 @@ export class MapScene extends Phaser.Scene {
       node.amount = tick.nodeAmount;
       unit.carried = tick.carried;
       unit.carryResource = node.resource;
+      if (tick.nodeDepleted && !node.depletedLogged) {
+        node.depletedLogged = true;
+        this.logEvent(EVENT_TYPES.NODE_DEPLETED, {
+          nodeId: node.id,
+          kind: node.kind,
+          resource: node.resource,
+          tile: { ...node.tile },
+        });
+      }
       this.updateNodeVisual(node);
       this.updateCarryCue(unit);
       if (!tick.gathered || tick.shouldReturn) {
@@ -326,7 +339,16 @@ export class MapScene extends Phaser.Scene {
       carried: unit.carried,
       nodeAmount: node?.amount ?? 0,
     });
-    this.resources = { ...this.resources, [unit.carryResource]: result.stored };
+    const resource = unit.carryResource;
+    this.resources = { ...this.resources, [resource]: result.stored };
+    this.logEvent(EVENT_TYPES.RESOURCE_DELIVERED, {
+      unitId: unit.id,
+      resource,
+      amount: unit.carried,
+      storedAfter: result.stored,
+      dropOffId: unit.order?.dropOffId ?? null,
+      nodeId: unit.order?.nodeId ?? null,
+    });
     unit.carried = 0;
     this.updateCarryCue(unit);
     this.refreshPanel();
@@ -377,6 +399,11 @@ export class MapScene extends Phaser.Scene {
     for (const unit of this.units) {
       if (unit.order?.type === 'build' && unit.order.buildingId === building.id) unit.order = null;
     }
+    this.logEvent(EVENT_TYPES.BUILD_COMPLETED, {
+      buildingId: building.id,
+      buildingType: building.type,
+      tile: { ...building.tile },
+    });
     this.panel.setFeedback(`${building.label} đã hoàn thành.`);
     this.refreshPanel();
   }
@@ -401,6 +428,16 @@ export class MapScene extends Phaser.Scene {
       const result = applyDamage(target.hp, unit.attackDamage);
       target.hp = result.hp;
       updateHpBar(target.hpBar, target.hp, target.maxHp);
+      this.logEvent(EVENT_TYPES.DAMAGE, {
+        attackerId: unit.id,
+        attackerFaction: unit.faction,
+        targetId: target.id,
+        targetType: target.type,
+        targetFaction: target.faction,
+        amount: unit.attackDamage,
+        hpAfter: result.hp,
+        maxHp: target.maxHp,
+      });
       if (result.dead) this.killEntity(target);
     }
   }
@@ -454,6 +491,14 @@ export class MapScene extends Phaser.Scene {
   spawnTrainedUnit(building, unitType) {
     const spot = this.freeTileNear(building.tile) ?? building.tile;
     const unit = this.addUnit(unitType, spot, building.faction);
+    if (building.faction === 'player') {
+      this.logEvent(EVENT_TYPES.UNIT_TRAINED, {
+        unitId: unit.id,
+        unitType,
+        buildingId: building.id,
+        tile: { ...unit.tile },
+      });
+    }
     this.panel.setFeedback(`${unit.label} đã sẵn sàng.`);
     if (building.faction === 'player' && building.rally) this.applyRallyOrder(unit, building.rally);
     return unit;
@@ -490,6 +535,14 @@ export class MapScene extends Phaser.Scene {
     }
     this.resources = subtractCost(this.resources, rule.cost);
     building.queue.push({ unitType, remaining: rule.trainTime });
+    this.logEvent(EVENT_TYPES.TRAIN_QUEUED, {
+      unitType,
+      buildingId: building.id,
+      buildingType: building.type,
+      trainTime: rule.trainTime,
+      queueLength: building.queue.length,
+      resources: this.resourceSnapshot(),
+    });
     this.panel.setFeedback(`Đang huấn luyện ${rule.label}…`);
     this.refreshPanel();
   }
@@ -528,6 +581,13 @@ export class MapScene extends Phaser.Scene {
       this.routeUnitAdjacentTo(builder, building.tile);
     }
     this.pendingBuild = null;
+    this.logEvent(EVENT_TYPES.BUILD_STARTED, {
+      buildingId: building.id,
+      buildingType: type,
+      tile: { ...building.tile },
+      builderIds: builders.map((builder) => builder.id),
+      resources: this.resourceSnapshot(),
+    });
     this.panel.setFeedback(`Đang xây ${building.label}…`);
     this.refreshPanel();
   }
@@ -718,14 +778,27 @@ export class MapScene extends Phaser.Scene {
 
     if (selected.length) {
       if (enemy) {
-        selected.filter((unit) => unit.attackDamage > 0).forEach((unit) => this.commandAttack(unit, enemy));
+        const attackers = selected.filter((unit) => unit.attackDamage > 0);
+        attackers.forEach((unit) => this.commandAttack(unit, enemy));
         this.markCommand(enemy.tile, 0xff8a7a);
+        this.logOrder('attack', attackers, {
+          targetId: enemy.id,
+          targetType: enemy.type,
+          targetFaction: enemy.faction,
+          tile: { ...enemy.tile },
+        });
       } else if (node) {
         selected.forEach((unit) => this.commandGather(unit, node));
         this.markCommand(node.tile, 0x9fe08a);
+        this.logOrder('gather', selected, {
+          nodeId: node.id,
+          resource: node.resource,
+          tile: { ...node.tile },
+        });
       } else if (this.isWalkable(tile.x, tile.y)) {
         selected.forEach((unit) => this.moveUnitTo(unit, tile));
         this.markCommand(tile, 0xfff1a1);
+        this.logOrder('move', selected, { tile: { x: tile.x, y: tile.y } });
       } else {
         this.panel.setFeedback('Không thể di chuyển tới ô đó.');
       }
@@ -970,12 +1043,67 @@ export class MapScene extends Phaser.Scene {
     unit.container.setDepth(1 + (tile.x + tile.y) * 4 + 2);
   }
 
+  // --- Match logging -----------------------------------------------------
+
+  logEvent(type, data = {}) {
+    this.matchLog?.record(type, this.elapsedMs, data);
+  }
+
+  resourceSnapshot() {
+    return {
+      food: this.resources[RESOURCE_TYPES.FOOD] ?? 0,
+      wood: this.resources[RESOURCE_TYPES.WOOD] ?? 0,
+      population: this.playerUnits().reduce((sum, unit) => sum + unit.population, 0),
+      cap: this.populationCap(),
+    };
+  }
+
+  logMatchStart() {
+    this.logEvent(EVENT_TYPES.MATCH_START, {
+      townCenterTile: { ...TOWN_CENTER_TILE },
+      enemyOutpostTile: { ...ENEMY_OUTPOST_TILE },
+      villagers: this.playerUnits().length,
+      enemyUnits: this.units.filter((unit) => unit.faction === 'enemy').length,
+      resources: this.resourceSnapshot(),
+    });
+  }
+
+  logOrder(orderType, units, target) {
+    if (!units.length) return;
+    this.logEvent(EVENT_TYPES.ORDER, {
+      order: orderType,
+      unitIds: units.map((unit) => unit.id),
+      unitCount: units.length,
+      ...target,
+    });
+  }
+
+  exportMatchLog() {
+    if (!this.matchLog) return;
+    try {
+      const { filename, bytes } = downloadMatchLog(this.matchLog);
+      this.panel.setFeedback(`Đã tải nhật ký: ${filename} (${this.matchLog.size()} sự kiện).`);
+      return { filename, bytes };
+    } catch (error) {
+      this.panel.setFeedback('Không thể tải nhật ký trận đấu.');
+      return null;
+    }
+  }
+
   // --- End-game ----------------------------------------------------------
 
   killEntity(entity) {
     entity.hp = 0;
     entity.container?.setVisible(false);
     this.selectedIds.delete(entity.id);
+    this.logEvent(EVENT_TYPES.ENTITY_KILLED, {
+      id: entity.id,
+      kind: entity.isBuilding ? 'building' : 'unit',
+      type: entity.type,
+      label: entity.label,
+      faction: entity.faction,
+      tile: { ...entity.tile },
+    });
   }
 
   pruneDead() {
@@ -992,11 +1120,13 @@ export class MapScene extends Phaser.Scene {
     if (this.gameOver) return;
     if (!this.enemyOutpost || this.enemyOutpost.hp <= 0) {
       this.gameOver = true;
+      this.logEvent(EVENT_TYPES.VICTORY, { resources: this.resourceSnapshot() });
       this.panel.showBanner('CHIẾN THẮNG! Enemy Outpost đã bị phá hủy.', 'win');
       return;
     }
     if (!this.townCenter || this.townCenter.hp <= 0) {
       this.gameOver = true;
+      this.logEvent(EVENT_TYPES.DEFEAT, { resources: this.resourceSnapshot() });
       this.panel.showBanner('THẤT BẠI! Town Center đã bị phá hủy.', 'lose');
     }
   }

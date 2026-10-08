@@ -7,6 +7,16 @@ export function createCommandPanel(handlers = {}) {
   const feedback = document.querySelector('#feedback');
   const resourceEl = document.querySelector('#resource-info');
   const banner = document.querySelector('#banner');
+  const exportButton = document.querySelector('#log-export');
+
+  // The export button is persistent (not part of the context-sensitive command
+  // bar), so wiring it here keeps the train/build buttons untouched.
+  if (exportButton && handlers.onExportLog) {
+    exportButton.addEventListener('click', (event) => {
+      event.stopPropagation();
+      handlers.onExportLog();
+    });
+  }
 
   const buttons = {
     trainVillager: makeButton('Huấn luyện Villager (50 Food)', handlers.onTrainVillager),

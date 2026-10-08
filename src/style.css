@@ -95,6 +95,26 @@ body { min-width: 360px; min-height: 240px; }
   cursor: not-allowed;
 }
 
+.log-export {
+  position: fixed;
+  z-index: 6;
+  top: 18px;
+  right: 18px;
+  padding: 9px 13px;
+  border: 1px solid #5b6b45;
+  border-radius: 7px;
+  background: linear-gradient(#36462c, #273320);
+  color: #f2f2df;
+  font: 700 12px/1 Inter, system-ui, sans-serif;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  box-shadow: 0 6px 22px rgb(0 0 0 / 28%);
+  transition: filter 0.12s ease;
+}
+
+.log-export:hover { filter: brightness(1.18); }
+.log-export:active { filter: brightness(0.95); }
+
 .feedback {
   position: fixed;
   z-index: 6;

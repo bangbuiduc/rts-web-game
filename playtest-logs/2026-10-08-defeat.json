@@ -1,0 +1,3956 @@
+{
+  "version": 1,
+  "createdAt": "2026-10-08T04:45:43.139Z",
+  "exportedAt": "2026-10-08T04:49:33.708Z",
+  "maxEvents": 2000,
+  "eventCount": 263,
+  "droppedCount": 0,
+  "events": [
+    {
+      "seq": 0,
+      "type": "match-start",
+      "elapsedMs": 0,
+      "data": {
+        "townCenterTile": {
+          "x": 15,
+          "y": 15
+        },
+        "enemyOutpostTile": {
+          "x": 26,
+          "y": 26
+        },
+        "villagers": 3,
+        "enemyUnits": 2,
+        "resources": {
+          "food": 200,
+          "wood": 200,
+          "population": 3,
+          "cap": 8
+        }
+      }
+    },
+    {
+      "seq": 1,
+      "type": "order",
+      "elapsedMs": 9336,
+      "data": {
+        "order": "gather",
+        "unitIds": [
+          3,
+          5
+        ],
+        "unitCount": 2,
+        "nodeId": "berry-west",
+        "resource": "food",
+        "tile": {
+          "x": 11,
+          "y": 17
+        }
+      }
+    },
+    {
+      "seq": 2,
+      "type": "order",
+      "elapsedMs": 12564,
+      "data": {
+        "order": "move",
+        "unitIds": [
+          4
+        ],
+        "unitCount": 1,
+        "tile": {
+          "x": 20,
+          "y": 12
+        }
+      }
+    },
+    {
+      "seq": 3,
+      "type": "resource-delivered",
+      "elapsedMs": 15751,
+      "data": {
+        "unitId": 3,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 205,
+        "dropOffId": 1,
+        "nodeId": "berry-west"
+      }
+    },
+    {
+      "seq": 4,
+      "type": "resource-delivered",
+      "elapsedMs": 15751,
+      "data": {
+        "unitId": 5,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 210,
+        "dropOffId": 1,
+        "nodeId": "berry-west"
+      }
+    },
+    {
+      "seq": 5,
+      "type": "resource-delivered",
+      "elapsedMs": 22459,
+      "data": {
+        "unitId": 3,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 215,
+        "dropOffId": 1,
+        "nodeId": "berry-west"
+      }
+    },
+    {
+      "seq": 6,
+      "type": "resource-delivered",
+      "elapsedMs": 22459,
+      "data": {
+        "unitId": 5,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 220,
+        "dropOffId": 1,
+        "nodeId": "berry-west"
+      }
+    },
+    {
+      "seq": 7,
+      "type": "resource-delivered",
+      "elapsedMs": 29167,
+      "data": {
+        "unitId": 3,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 225,
+        "dropOffId": 1,
+        "nodeId": "berry-west"
+      }
+    },
+    {
+      "seq": 8,
+      "type": "resource-delivered",
+      "elapsedMs": 29167,
+      "data": {
+        "unitId": 5,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 230,
+        "dropOffId": 1,
+        "nodeId": "berry-west"
+      }
+    },
+    {
+      "seq": 9,
+      "type": "resource-delivered",
+      "elapsedMs": 35875,
+      "data": {
+        "unitId": 3,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 235,
+        "dropOffId": 1,
+        "nodeId": "berry-west"
+      }
+    },
+    {
+      "seq": 10,
+      "type": "resource-delivered",
+      "elapsedMs": 35875,
+      "data": {
+        "unitId": 5,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 240,
+        "dropOffId": 1,
+        "nodeId": "berry-west"
+      }
+    },
+    {
+      "seq": 11,
+      "type": "train-queued",
+      "elapsedMs": 39409,
+      "data": {
+        "unitType": "villager",
+        "buildingId": 1,
+        "buildingType": "townCenter",
+        "trainTime": 4000,
+        "queueLength": 1,
+        "resources": {
+          "food": 190,
+          "wood": 200,
+          "population": 3,
+          "cap": 8
+        }
+      }
+    },
+    {
+      "seq": 12,
+      "type": "node-depleted",
+      "elapsedMs": 41356,
+      "data": {
+        "nodeId": "berry-west",
+        "kind": "bush",
+        "resource": "food",
+        "tile": {
+          "x": 11,
+          "y": 17
+        }
+      }
+    },
+    {
+      "seq": 13,
+      "type": "resource-delivered",
+      "elapsedMs": 42582,
+      "data": {
+        "unitId": 3,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 195,
+        "dropOffId": 1,
+        "nodeId": "berry-west"
+      }
+    },
+    {
+      "seq": 14,
+      "type": "resource-delivered",
+      "elapsedMs": 42582,
+      "data": {
+        "unitId": 5,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 200,
+        "dropOffId": 1,
+        "nodeId": "berry-west"
+      }
+    },
+    {
+      "seq": 15,
+      "type": "unit-trained",
+      "elapsedMs": 43422,
+      "data": {
+        "unitId": 8,
+        "unitType": "villager",
+        "buildingId": 1,
+        "tile": {
+          "x": 16,
+          "y": 15
+        }
+      }
+    },
+    {
+      "seq": 16,
+      "type": "train-queued",
+      "elapsedMs": 46302,
+      "data": {
+        "unitType": "villager",
+        "buildingId": 1,
+        "buildingType": "townCenter",
+        "trainTime": 4000,
+        "queueLength": 1,
+        "resources": {
+          "food": 150,
+          "wood": 200,
+          "population": 4,
+          "cap": 8
+        }
+      }
+    },
+    {
+      "seq": 17,
+      "type": "train-queued",
+      "elapsedMs": 49836,
+      "data": {
+        "unitType": "villager",
+        "buildingId": 1,
+        "buildingType": "townCenter",
+        "trainTime": 4000,
+        "queueLength": 2,
+        "resources": {
+          "food": 100,
+          "wood": 200,
+          "population": 4,
+          "cap": 8
+        }
+      }
+    },
+    {
+      "seq": 18,
+      "type": "unit-trained",
+      "elapsedMs": 50303,
+      "data": {
+        "unitId": 9,
+        "unitType": "villager",
+        "buildingId": 1,
+        "tile": {
+          "x": 16,
+          "y": 15
+        }
+      }
+    },
+    {
+      "seq": 19,
+      "type": "train-queued",
+      "elapsedMs": 51970,
+      "data": {
+        "unitType": "villager",
+        "buildingId": 1,
+        "buildingType": "townCenter",
+        "trainTime": 4000,
+        "queueLength": 2,
+        "resources": {
+          "food": 50,
+          "wood": 200,
+          "population": 5,
+          "cap": 8
+        }
+      }
+    },
+    {
+      "seq": 20,
+      "type": "train-queued",
+      "elapsedMs": 52930,
+      "data": {
+        "unitType": "villager",
+        "buildingId": 1,
+        "buildingType": "townCenter",
+        "trainTime": 4000,
+        "queueLength": 3,
+        "resources": {
+          "food": 0,
+          "wood": 200,
+          "population": 5,
+          "cap": 8
+        }
+      }
+    },
+    {
+      "seq": 21,
+      "type": "unit-trained",
+      "elapsedMs": 54304,
+      "data": {
+        "unitId": 10,
+        "unitType": "villager",
+        "buildingId": 1,
+        "tile": {
+          "x": 16,
+          "y": 15
+        }
+      }
+    },
+    {
+      "seq": 22,
+      "type": "order",
+      "elapsedMs": 55931,
+      "data": {
+        "order": "gather",
+        "unitIds": [
+          3,
+          5,
+          8,
+          9,
+          10
+        ],
+        "unitCount": 5,
+        "nodeId": "berry-north",
+        "resource": "food",
+        "tile": {
+          "x": 13,
+          "y": 11
+        }
+      }
+    },
+    {
+      "seq": 23,
+      "type": "unit-trained",
+      "elapsedMs": 58304,
+      "data": {
+        "unitId": 11,
+        "unitType": "villager",
+        "buildingId": 1,
+        "tile": {
+          "x": 16,
+          "y": 15
+        }
+      }
+    },
+    {
+      "seq": 24,
+      "type": "resource-delivered",
+      "elapsedMs": 61665,
+      "data": {
+        "unitId": 3,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 5,
+        "dropOffId": 1,
+        "nodeId": "berry-north"
+      }
+    },
+    {
+      "seq": 25,
+      "type": "resource-delivered",
+      "elapsedMs": 61665,
+      "data": {
+        "unitId": 5,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 10,
+        "dropOffId": 1,
+        "nodeId": "berry-north"
+      }
+    },
+    {
+      "seq": 26,
+      "type": "resource-delivered",
+      "elapsedMs": 62225,
+      "data": {
+        "unitId": 8,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 15,
+        "dropOffId": 1,
+        "nodeId": "berry-north"
+      }
+    },
+    {
+      "seq": 27,
+      "type": "resource-delivered",
+      "elapsedMs": 62225,
+      "data": {
+        "unitId": 9,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 20,
+        "dropOffId": 1,
+        "nodeId": "berry-north"
+      }
+    },
+    {
+      "seq": 28,
+      "type": "resource-delivered",
+      "elapsedMs": 62225,
+      "data": {
+        "unitId": 10,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 25,
+        "dropOffId": 1,
+        "nodeId": "berry-north"
+      }
+    },
+    {
+      "seq": 29,
+      "type": "unit-trained",
+      "elapsedMs": 62305,
+      "data": {
+        "unitId": 12,
+        "unitType": "villager",
+        "buildingId": 1,
+        "tile": {
+          "x": 16,
+          "y": 15
+        }
+      }
+    },
+    {
+      "seq": 30,
+      "type": "node-depleted",
+      "elapsedMs": 67093,
+      "data": {
+        "nodeId": "berry-north",
+        "kind": "bush",
+        "resource": "food",
+        "tile": {
+          "x": 13,
+          "y": 11
+        }
+      }
+    },
+    {
+      "seq": 31,
+      "type": "resource-delivered",
+      "elapsedMs": 67146,
+      "data": {
+        "unitId": 3,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 30,
+        "dropOffId": 1,
+        "nodeId": "berry-north"
+      }
+    },
+    {
+      "seq": 32,
+      "type": "resource-delivered",
+      "elapsedMs": 67146,
+      "data": {
+        "unitId": 5,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 35,
+        "dropOffId": 1,
+        "nodeId": "berry-north"
+      }
+    },
+    {
+      "seq": 33,
+      "type": "resource-delivered",
+      "elapsedMs": 67706,
+      "data": {
+        "unitId": 8,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 40,
+        "dropOffId": 1,
+        "nodeId": "berry-north"
+      }
+    },
+    {
+      "seq": 34,
+      "type": "resource-delivered",
+      "elapsedMs": 67706,
+      "data": {
+        "unitId": 9,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 45,
+        "dropOffId": 1,
+        "nodeId": "berry-north"
+      }
+    },
+    {
+      "seq": 35,
+      "type": "resource-delivered",
+      "elapsedMs": 67706,
+      "data": {
+        "unitId": 10,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 50,
+        "dropOffId": 1,
+        "nodeId": "berry-north"
+      }
+    },
+    {
+      "seq": 36,
+      "type": "order",
+      "elapsedMs": 67839,
+      "data": {
+        "order": "gather",
+        "unitIds": [
+          11,
+          12
+        ],
+        "unitCount": 2,
+        "nodeId": "oak-east",
+        "resource": "wood",
+        "tile": {
+          "x": 21,
+          "y": 13
+        }
+      }
+    },
+    {
+      "seq": 37,
+      "type": "order",
+      "elapsedMs": 70880,
+      "data": {
+        "order": "move",
+        "unitIds": [
+          3,
+          5,
+          8,
+          9,
+          10
+        ],
+        "unitCount": 5,
+        "tile": {
+          "x": 13,
+          "y": 19
+        }
+      }
+    },
+    {
+      "seq": 38,
+      "type": "order",
+      "elapsedMs": 71600,
+      "data": {
+        "order": "move",
+        "unitIds": [
+          3,
+          5,
+          8,
+          9,
+          10
+        ],
+        "unitCount": 5,
+        "tile": {
+          "x": 13,
+          "y": 19
+        }
+      }
+    },
+    {
+      "seq": 39,
+      "type": "order",
+      "elapsedMs": 73067,
+      "data": {
+        "order": "move",
+        "unitIds": [
+          3,
+          5,
+          8,
+          9,
+          10
+        ],
+        "unitCount": 5,
+        "tile": {
+          "x": 8,
+          "y": 20
+        }
+      }
+    },
+    {
+      "seq": 40,
+      "type": "order",
+      "elapsedMs": 73547,
+      "data": {
+        "order": "gather",
+        "unitIds": [
+          3,
+          5,
+          8,
+          9,
+          10
+        ],
+        "unitCount": 5,
+        "nodeId": "oak-southwest",
+        "resource": "wood",
+        "tile": {
+          "x": 9,
+          "y": 21
+        }
+      }
+    },
+    {
+      "seq": 41,
+      "type": "resource-delivered",
+      "elapsedMs": 75815,
+      "data": {
+        "unitId": 11,
+        "resource": "wood",
+        "amount": 5,
+        "storedAfter": 205,
+        "dropOffId": 1,
+        "nodeId": "oak-east"
+      }
+    },
+    {
+      "seq": 42,
+      "type": "resource-delivered",
+      "elapsedMs": 75815,
+      "data": {
+        "unitId": 12,
+        "resource": "wood",
+        "amount": 5,
+        "storedAfter": 210,
+        "dropOffId": 1,
+        "nodeId": "oak-east"
+      }
+    },
+    {
+      "seq": 43,
+      "type": "resource-delivered",
+      "elapsedMs": 82016,
+      "data": {
+        "unitId": 3,
+        "resource": "wood",
+        "amount": 5,
+        "storedAfter": 215,
+        "dropOffId": 1,
+        "nodeId": "oak-southwest"
+      }
+    },
+    {
+      "seq": 44,
+      "type": "resource-delivered",
+      "elapsedMs": 82016,
+      "data": {
+        "unitId": 5,
+        "resource": "wood",
+        "amount": 5,
+        "storedAfter": 220,
+        "dropOffId": 1,
+        "nodeId": "oak-southwest"
+      }
+    },
+    {
+      "seq": 45,
+      "type": "resource-delivered",
+      "elapsedMs": 82016,
+      "data": {
+        "unitId": 8,
+        "resource": "wood",
+        "amount": 5,
+        "storedAfter": 225,
+        "dropOffId": 1,
+        "nodeId": "oak-southwest"
+      }
+    },
+    {
+      "seq": 46,
+      "type": "resource-delivered",
+      "elapsedMs": 82016,
+      "data": {
+        "unitId": 9,
+        "resource": "wood",
+        "amount": 5,
+        "storedAfter": 230,
+        "dropOffId": 1,
+        "nodeId": "oak-southwest"
+      }
+    },
+    {
+      "seq": 47,
+      "type": "resource-delivered",
+      "elapsedMs": 82016,
+      "data": {
+        "unitId": 10,
+        "resource": "wood",
+        "amount": 5,
+        "storedAfter": 235,
+        "dropOffId": 1,
+        "nodeId": "oak-southwest"
+      }
+    },
+    {
+      "seq": 48,
+      "type": "resource-delivered",
+      "elapsedMs": 83789,
+      "data": {
+        "unitId": 11,
+        "resource": "wood",
+        "amount": 5,
+        "storedAfter": 240,
+        "dropOffId": 1,
+        "nodeId": "oak-east"
+      }
+    },
+    {
+      "seq": 49,
+      "type": "resource-delivered",
+      "elapsedMs": 83789,
+      "data": {
+        "unitId": 12,
+        "resource": "wood",
+        "amount": 5,
+        "storedAfter": 245,
+        "dropOffId": 1,
+        "nodeId": "oak-east"
+      }
+    },
+    {
+      "seq": 50,
+      "type": "node-depleted",
+      "elapsedMs": 87627,
+      "data": {
+        "nodeId": "oak-southwest",
+        "kind": "tree",
+        "resource": "wood",
+        "tile": {
+          "x": 9,
+          "y": 21
+        }
+      }
+    },
+    {
+      "seq": 51,
+      "type": "resource-delivered",
+      "elapsedMs": 90681,
+      "data": {
+        "unitId": 10,
+        "resource": "wood",
+        "amount": 3,
+        "storedAfter": 248,
+        "dropOffId": 1,
+        "nodeId": "oak-southwest"
+      }
+    },
+    {
+      "seq": 52,
+      "type": "resource-delivered",
+      "elapsedMs": 90694,
+      "data": {
+        "unitId": 3,
+        "resource": "wood",
+        "amount": 3,
+        "storedAfter": 251,
+        "dropOffId": 1,
+        "nodeId": "oak-southwest"
+      }
+    },
+    {
+      "seq": 53,
+      "type": "resource-delivered",
+      "elapsedMs": 90694,
+      "data": {
+        "unitId": 5,
+        "resource": "wood",
+        "amount": 3,
+        "storedAfter": 254,
+        "dropOffId": 1,
+        "nodeId": "oak-southwest"
+      }
+    },
+    {
+      "seq": 54,
+      "type": "resource-delivered",
+      "elapsedMs": 90694,
+      "data": {
+        "unitId": 8,
+        "resource": "wood",
+        "amount": 3,
+        "storedAfter": 257,
+        "dropOffId": 1,
+        "nodeId": "oak-southwest"
+      }
+    },
+    {
+      "seq": 55,
+      "type": "resource-delivered",
+      "elapsedMs": 90694,
+      "data": {
+        "unitId": 9,
+        "resource": "wood",
+        "amount": 3,
+        "storedAfter": 260,
+        "dropOffId": 1,
+        "nodeId": "oak-southwest"
+      }
+    },
+    {
+      "seq": 56,
+      "type": "resource-delivered",
+      "elapsedMs": 91774,
+      "data": {
+        "unitId": 11,
+        "resource": "wood",
+        "amount": 5,
+        "storedAfter": 265,
+        "dropOffId": 1,
+        "nodeId": "oak-east"
+      }
+    },
+    {
+      "seq": 57,
+      "type": "resource-delivered",
+      "elapsedMs": 91774,
+      "data": {
+        "unitId": 12,
+        "resource": "wood",
+        "amount": 5,
+        "storedAfter": 270,
+        "dropOffId": 1,
+        "nodeId": "oak-east"
+      }
+    },
+    {
+      "seq": 58,
+      "type": "damage",
+      "elapsedMs": 95765,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 11,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 35,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 59,
+      "type": "damage",
+      "elapsedMs": 96045,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 11,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 30,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 60,
+      "type": "damage",
+      "elapsedMs": 96872,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 11,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 25,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 61,
+      "type": "damage",
+      "elapsedMs": 97152,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 11,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 20,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 62,
+      "type": "node-depleted",
+      "elapsedMs": 97899,
+      "data": {
+        "nodeId": "oak-east",
+        "kind": "tree",
+        "resource": "wood",
+        "tile": {
+          "x": 21,
+          "y": 13
+        }
+      }
+    },
+    {
+      "seq": 63,
+      "type": "damage",
+      "elapsedMs": 97979,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 11,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 15,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 64,
+      "type": "damage",
+      "elapsedMs": 98259,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 11,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 10,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 65,
+      "type": "damage",
+      "elapsedMs": 99085,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 11,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 5,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 66,
+      "type": "damage",
+      "elapsedMs": 99366,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 11,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 0,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 67,
+      "type": "entity-killed",
+      "elapsedMs": 99366,
+      "data": {
+        "id": 11,
+        "kind": "unit",
+        "type": "villager",
+        "label": "Villager",
+        "faction": "player",
+        "tile": {
+          "x": 20,
+          "y": 13
+        }
+      }
+    },
+    {
+      "seq": 68,
+      "type": "damage",
+      "elapsedMs": 99379,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 12,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 35,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 69,
+      "type": "damage",
+      "elapsedMs": 99379,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 12,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 30,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 70,
+      "type": "resource-delivered",
+      "elapsedMs": 99766,
+      "data": {
+        "unitId": 12,
+        "resource": "wood",
+        "amount": 5,
+        "storedAfter": 275,
+        "dropOffId": 1,
+        "nodeId": "oak-east"
+      }
+    },
+    {
+      "seq": 71,
+      "type": "damage",
+      "elapsedMs": 101126,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 12,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 25,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 72,
+      "type": "damage",
+      "elapsedMs": 101126,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 12,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 20,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 73,
+      "type": "damage",
+      "elapsedMs": 102233,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 12,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 15,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 74,
+      "type": "damage",
+      "elapsedMs": 102233,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 12,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 10,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 75,
+      "type": "damage",
+      "elapsedMs": 103340,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 12,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 5,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 76,
+      "type": "damage",
+      "elapsedMs": 103340,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 12,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 0,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 77,
+      "type": "entity-killed",
+      "elapsedMs": 103340,
+      "data": {
+        "id": 12,
+        "kind": "unit",
+        "type": "villager",
+        "label": "Villager",
+        "faction": "player",
+        "tile": {
+          "x": 16,
+          "y": 15
+        }
+      }
+    },
+    {
+      "seq": 78,
+      "type": "damage",
+      "elapsedMs": 104020,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 3,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 35,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 79,
+      "type": "damage",
+      "elapsedMs": 104020,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 3,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 30,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 80,
+      "type": "damage",
+      "elapsedMs": 105127,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 3,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 25,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 81,
+      "type": "damage",
+      "elapsedMs": 105127,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 3,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 20,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 82,
+      "type": "damage",
+      "elapsedMs": 106233,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 3,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 15,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 83,
+      "type": "damage",
+      "elapsedMs": 106233,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 3,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 10,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 84,
+      "type": "damage",
+      "elapsedMs": 107340,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 3,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 5,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 85,
+      "type": "damage",
+      "elapsedMs": 107340,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 3,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 0,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 86,
+      "type": "entity-killed",
+      "elapsedMs": 107340,
+      "data": {
+        "id": 3,
+        "kind": "unit",
+        "type": "villager",
+        "label": "Villager",
+        "faction": "player",
+        "tile": {
+          "x": 15,
+          "y": 16
+        }
+      }
+    },
+    {
+      "seq": 87,
+      "type": "damage",
+      "elapsedMs": 107354,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 5,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 35,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 88,
+      "type": "damage",
+      "elapsedMs": 107354,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 5,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 30,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 89,
+      "type": "damage",
+      "elapsedMs": 108461,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 5,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 25,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 90,
+      "type": "damage",
+      "elapsedMs": 108461,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 5,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 20,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 91,
+      "type": "damage",
+      "elapsedMs": 109567,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 5,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 15,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 92,
+      "type": "damage",
+      "elapsedMs": 109567,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 5,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 10,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 93,
+      "type": "damage",
+      "elapsedMs": 110674,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 5,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 5,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 94,
+      "type": "damage",
+      "elapsedMs": 110674,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 5,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 0,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 95,
+      "type": "entity-killed",
+      "elapsedMs": 110674,
+      "data": {
+        "id": 5,
+        "kind": "unit",
+        "type": "villager",
+        "label": "Villager",
+        "faction": "player",
+        "tile": {
+          "x": 15,
+          "y": 16
+        }
+      }
+    },
+    {
+      "seq": 96,
+      "type": "damage",
+      "elapsedMs": 110688,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 8,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 35,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 97,
+      "type": "damage",
+      "elapsedMs": 110688,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 8,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 30,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 98,
+      "type": "damage",
+      "elapsedMs": 111795,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 8,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 25,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 99,
+      "type": "damage",
+      "elapsedMs": 111795,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 8,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 20,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 100,
+      "type": "damage",
+      "elapsedMs": 112901,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 8,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 15,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 101,
+      "type": "damage",
+      "elapsedMs": 112901,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 8,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 10,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 102,
+      "type": "damage",
+      "elapsedMs": 114008,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 8,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 5,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 103,
+      "type": "damage",
+      "elapsedMs": 114008,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 8,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 0,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 104,
+      "type": "entity-killed",
+      "elapsedMs": 114008,
+      "data": {
+        "id": 8,
+        "kind": "unit",
+        "type": "villager",
+        "label": "Villager",
+        "faction": "player",
+        "tile": {
+          "x": 15,
+          "y": 16
+        }
+      }
+    },
+    {
+      "seq": 105,
+      "type": "damage",
+      "elapsedMs": 114022,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 9,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 35,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 106,
+      "type": "damage",
+      "elapsedMs": 114022,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 9,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 30,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 107,
+      "type": "damage",
+      "elapsedMs": 115129,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 9,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 25,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 108,
+      "type": "damage",
+      "elapsedMs": 115129,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 9,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 20,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 109,
+      "type": "damage",
+      "elapsedMs": 116235,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 9,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 15,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 110,
+      "type": "damage",
+      "elapsedMs": 116235,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 9,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 10,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 111,
+      "type": "damage",
+      "elapsedMs": 117342,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 9,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 5,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 112,
+      "type": "damage",
+      "elapsedMs": 117342,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 9,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 0,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 113,
+      "type": "entity-killed",
+      "elapsedMs": 117342,
+      "data": {
+        "id": 9,
+        "kind": "unit",
+        "type": "villager",
+        "label": "Villager",
+        "faction": "player",
+        "tile": {
+          "x": 15,
+          "y": 16
+        }
+      }
+    },
+    {
+      "seq": 114,
+      "type": "damage",
+      "elapsedMs": 117356,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 10,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 35,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 115,
+      "type": "damage",
+      "elapsedMs": 117356,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 10,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 30,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 116,
+      "type": "damage",
+      "elapsedMs": 118462,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 10,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 25,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 117,
+      "type": "damage",
+      "elapsedMs": 118462,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 10,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 20,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 118,
+      "type": "damage",
+      "elapsedMs": 119569,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 10,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 15,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 119,
+      "type": "damage",
+      "elapsedMs": 119569,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 10,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 10,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 120,
+      "type": "damage",
+      "elapsedMs": 120676,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 10,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 5,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 121,
+      "type": "damage",
+      "elapsedMs": 120676,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 10,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 0,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 122,
+      "type": "entity-killed",
+      "elapsedMs": 120676,
+      "data": {
+        "id": 10,
+        "kind": "unit",
+        "type": "villager",
+        "label": "Villager",
+        "faction": "player",
+        "tile": {
+          "x": 15,
+          "y": 16
+        }
+      }
+    },
+    {
+      "seq": 123,
+      "type": "damage",
+      "elapsedMs": 123037,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 4,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 35,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 124,
+      "type": "damage",
+      "elapsedMs": 123037,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 4,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 30,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 125,
+      "type": "damage",
+      "elapsedMs": 124144,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 4,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 25,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 126,
+      "type": "damage",
+      "elapsedMs": 124144,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 4,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 20,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 127,
+      "type": "damage",
+      "elapsedMs": 125250,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 4,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 15,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 128,
+      "type": "damage",
+      "elapsedMs": 125250,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 4,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 10,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 129,
+      "type": "damage",
+      "elapsedMs": 126357,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 4,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 5,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 130,
+      "type": "damage",
+      "elapsedMs": 126357,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 4,
+        "targetType": "villager",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 0,
+        "maxHp": 40
+      }
+    },
+    {
+      "seq": 131,
+      "type": "entity-killed",
+      "elapsedMs": 126357,
+      "data": {
+        "id": 4,
+        "kind": "unit",
+        "type": "villager",
+        "label": "Villager",
+        "faction": "player",
+        "tile": {
+          "x": 20,
+          "y": 12
+        }
+      }
+    },
+    {
+      "seq": 132,
+      "type": "damage",
+      "elapsedMs": 128371,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 475,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 133,
+      "type": "damage",
+      "elapsedMs": 128371,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 470,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 134,
+      "type": "damage",
+      "elapsedMs": 129478,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 465,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 135,
+      "type": "damage",
+      "elapsedMs": 129478,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 460,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 136,
+      "type": "damage",
+      "elapsedMs": 130583,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 455,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 137,
+      "type": "damage",
+      "elapsedMs": 130583,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 450,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 138,
+      "type": "damage",
+      "elapsedMs": 131690,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 445,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 139,
+      "type": "damage",
+      "elapsedMs": 131690,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 440,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 140,
+      "type": "damage",
+      "elapsedMs": 132797,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 435,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 141,
+      "type": "damage",
+      "elapsedMs": 132797,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 430,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 142,
+      "type": "damage",
+      "elapsedMs": 133904,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 425,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 143,
+      "type": "damage",
+      "elapsedMs": 133904,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 420,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 144,
+      "type": "damage",
+      "elapsedMs": 135011,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 415,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 145,
+      "type": "damage",
+      "elapsedMs": 135011,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 410,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 146,
+      "type": "damage",
+      "elapsedMs": 136117,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 405,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 147,
+      "type": "damage",
+      "elapsedMs": 136117,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 400,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 148,
+      "type": "damage",
+      "elapsedMs": 137224,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 395,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 149,
+      "type": "damage",
+      "elapsedMs": 137224,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 390,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 150,
+      "type": "damage",
+      "elapsedMs": 138331,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 385,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 151,
+      "type": "damage",
+      "elapsedMs": 138331,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 380,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 152,
+      "type": "damage",
+      "elapsedMs": 139438,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 375,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 153,
+      "type": "damage",
+      "elapsedMs": 139438,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 370,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 154,
+      "type": "damage",
+      "elapsedMs": 140545,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 365,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 155,
+      "type": "damage",
+      "elapsedMs": 140545,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 360,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 156,
+      "type": "damage",
+      "elapsedMs": 141652,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 355,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 157,
+      "type": "damage",
+      "elapsedMs": 141652,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 350,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 158,
+      "type": "damage",
+      "elapsedMs": 142759,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 345,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 159,
+      "type": "damage",
+      "elapsedMs": 142759,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 340,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 160,
+      "type": "damage",
+      "elapsedMs": 143866,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 335,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 161,
+      "type": "damage",
+      "elapsedMs": 143866,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 330,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 162,
+      "type": "damage",
+      "elapsedMs": 144973,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 325,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 163,
+      "type": "damage",
+      "elapsedMs": 144973,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 320,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 164,
+      "type": "train-queued",
+      "elapsedMs": 145386,
+      "data": {
+        "unitType": "villager",
+        "buildingId": 1,
+        "buildingType": "townCenter",
+        "trainTime": 4000,
+        "queueLength": 1,
+        "resources": {
+          "food": 0,
+          "wood": 275,
+          "population": 0,
+          "cap": 8
+        }
+      }
+    },
+    {
+      "seq": 165,
+      "type": "damage",
+      "elapsedMs": 146080,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 315,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 166,
+      "type": "damage",
+      "elapsedMs": 146080,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 310,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 167,
+      "type": "damage",
+      "elapsedMs": 147187,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 305,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 168,
+      "type": "damage",
+      "elapsedMs": 147187,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 300,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 169,
+      "type": "damage",
+      "elapsedMs": 148293,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 295,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 170,
+      "type": "damage",
+      "elapsedMs": 148293,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 290,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 171,
+      "type": "unit-trained",
+      "elapsedMs": 149387,
+      "data": {
+        "unitId": 13,
+        "unitType": "villager",
+        "buildingId": 1,
+        "tile": {
+          "x": 16,
+          "y": 15
+        }
+      }
+    },
+    {
+      "seq": 172,
+      "type": "damage",
+      "elapsedMs": 149400,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 285,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 173,
+      "type": "damage",
+      "elapsedMs": 149400,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 280,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 174,
+      "type": "damage",
+      "elapsedMs": 150507,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 275,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 175,
+      "type": "damage",
+      "elapsedMs": 150507,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 270,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 176,
+      "type": "damage",
+      "elapsedMs": 151614,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 265,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 177,
+      "type": "damage",
+      "elapsedMs": 151614,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 260,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 178,
+      "type": "damage",
+      "elapsedMs": 152721,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 255,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 179,
+      "type": "damage",
+      "elapsedMs": 152721,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 250,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 180,
+      "type": "damage",
+      "elapsedMs": 153828,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 245,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 181,
+      "type": "damage",
+      "elapsedMs": 153828,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 240,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 182,
+      "type": "order",
+      "elapsedMs": 154174,
+      "data": {
+        "order": "move",
+        "unitIds": [
+          13
+        ],
+        "unitCount": 1,
+        "tile": {
+          "x": 19,
+          "y": 16
+        }
+      }
+    },
+    {
+      "seq": 183,
+      "type": "order",
+      "elapsedMs": 154868,
+      "data": {
+        "order": "move",
+        "unitIds": [
+          13
+        ],
+        "unitCount": 1,
+        "tile": {
+          "x": 18,
+          "y": 13
+        }
+      }
+    },
+    {
+      "seq": 184,
+      "type": "damage",
+      "elapsedMs": 154935,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 235,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 185,
+      "type": "damage",
+      "elapsedMs": 154935,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 230,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 186,
+      "type": "order",
+      "elapsedMs": 155601,
+      "data": {
+        "order": "attack",
+        "unitIds": [
+          13
+        ],
+        "unitCount": 1,
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "tile": {
+          "x": 16,
+          "y": 15
+        }
+      }
+    },
+    {
+      "seq": 187,
+      "type": "damage",
+      "elapsedMs": 156041,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 225,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 188,
+      "type": "damage",
+      "elapsedMs": 156041,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 220,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 189,
+      "type": "damage",
+      "elapsedMs": 156415,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 63,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 190,
+      "type": "damage",
+      "elapsedMs": 157148,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 215,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 191,
+      "type": "damage",
+      "elapsedMs": 157148,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 210,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 192,
+      "type": "damage",
+      "elapsedMs": 157415,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 61,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 193,
+      "type": "damage",
+      "elapsedMs": 158255,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 205,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 194,
+      "type": "damage",
+      "elapsedMs": 158255,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 200,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 195,
+      "type": "damage",
+      "elapsedMs": 158415,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 59,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 196,
+      "type": "damage",
+      "elapsedMs": 159362,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 195,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 197,
+      "type": "damage",
+      "elapsedMs": 159362,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 190,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 198,
+      "type": "damage",
+      "elapsedMs": 159415,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 57,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 199,
+      "type": "damage",
+      "elapsedMs": 160416,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 55,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 200,
+      "type": "damage",
+      "elapsedMs": 160469,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 185,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 201,
+      "type": "damage",
+      "elapsedMs": 160469,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 180,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 202,
+      "type": "order",
+      "elapsedMs": 160509,
+      "data": {
+        "order": "attack",
+        "unitIds": [
+          13
+        ],
+        "unitCount": 1,
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "tile": {
+          "x": 16,
+          "y": 15
+        }
+      }
+    },
+    {
+      "seq": 203,
+      "type": "damage",
+      "elapsedMs": 160522,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 53,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 204,
+      "type": "damage",
+      "elapsedMs": 161522,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 51,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 205,
+      "type": "damage",
+      "elapsedMs": 161576,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 175,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 206,
+      "type": "damage",
+      "elapsedMs": 161576,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 170,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 207,
+      "type": "damage",
+      "elapsedMs": 162531,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 49,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 208,
+      "type": "damage",
+      "elapsedMs": 162683,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 165,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 209,
+      "type": "damage",
+      "elapsedMs": 162683,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 160,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 210,
+      "type": "damage",
+      "elapsedMs": 163536,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 47,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 211,
+      "type": "damage",
+      "elapsedMs": 163789,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 155,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 212,
+      "type": "damage",
+      "elapsedMs": 163789,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 150,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 213,
+      "type": "damage",
+      "elapsedMs": 164536,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 45,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 214,
+      "type": "damage",
+      "elapsedMs": 164896,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 145,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 215,
+      "type": "damage",
+      "elapsedMs": 164896,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 140,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 216,
+      "type": "damage",
+      "elapsedMs": 165536,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 43,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 217,
+      "type": "damage",
+      "elapsedMs": 166003,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 135,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 218,
+      "type": "damage",
+      "elapsedMs": 166003,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 130,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 219,
+      "type": "damage",
+      "elapsedMs": 166537,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 41,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 220,
+      "type": "damage",
+      "elapsedMs": 167110,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 125,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 221,
+      "type": "damage",
+      "elapsedMs": 167110,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 120,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 222,
+      "type": "damage",
+      "elapsedMs": 167537,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 39,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 223,
+      "type": "damage",
+      "elapsedMs": 168217,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 115,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 224,
+      "type": "damage",
+      "elapsedMs": 168217,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 110,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 225,
+      "type": "damage",
+      "elapsedMs": 168537,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 37,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 226,
+      "type": "damage",
+      "elapsedMs": 169324,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 105,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 227,
+      "type": "damage",
+      "elapsedMs": 169324,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 100,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 228,
+      "type": "damage",
+      "elapsedMs": 169537,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 35,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 229,
+      "type": "damage",
+      "elapsedMs": 170431,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 95,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 230,
+      "type": "damage",
+      "elapsedMs": 170431,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 90,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 231,
+      "type": "damage",
+      "elapsedMs": 170537,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 33,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 232,
+      "type": "damage",
+      "elapsedMs": 171537,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 85,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 233,
+      "type": "damage",
+      "elapsedMs": 171537,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 80,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 234,
+      "type": "damage",
+      "elapsedMs": 171537,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 31,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 235,
+      "type": "damage",
+      "elapsedMs": 172538,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 29,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 236,
+      "type": "damage",
+      "elapsedMs": 172644,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 75,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 237,
+      "type": "damage",
+      "elapsedMs": 172644,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 70,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 238,
+      "type": "damage",
+      "elapsedMs": 173538,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 27,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 239,
+      "type": "damage",
+      "elapsedMs": 173751,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 65,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 240,
+      "type": "damage",
+      "elapsedMs": 173751,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 60,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 241,
+      "type": "damage",
+      "elapsedMs": 174538,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 25,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 242,
+      "type": "damage",
+      "elapsedMs": 174858,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 55,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 243,
+      "type": "damage",
+      "elapsedMs": 174858,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 50,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 244,
+      "type": "damage",
+      "elapsedMs": 175538,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 23,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 245,
+      "type": "damage",
+      "elapsedMs": 175965,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 45,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 246,
+      "type": "damage",
+      "elapsedMs": 175965,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 40,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 247,
+      "type": "order",
+      "elapsedMs": 176058,
+      "data": {
+        "order": "attack",
+        "unitIds": [
+          13
+        ],
+        "unitCount": 1,
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "tile": {
+          "x": 16,
+          "y": 15
+        }
+      }
+    },
+    {
+      "seq": 248,
+      "type": "damage",
+      "elapsedMs": 176072,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 21,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 249,
+      "type": "damage",
+      "elapsedMs": 177072,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 35,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 250,
+      "type": "damage",
+      "elapsedMs": 177072,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 30,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 251,
+      "type": "damage",
+      "elapsedMs": 177072,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 19,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 252,
+      "type": "damage",
+      "elapsedMs": 178072,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 17,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 253,
+      "type": "damage",
+      "elapsedMs": 178179,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 25,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 254,
+      "type": "damage",
+      "elapsedMs": 178179,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 20,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 255,
+      "type": "damage",
+      "elapsedMs": 179072,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 15,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 256,
+      "type": "damage",
+      "elapsedMs": 179286,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 15,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 257,
+      "type": "damage",
+      "elapsedMs": 179286,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 10,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 258,
+      "type": "damage",
+      "elapsedMs": 180072,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 13,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 259,
+      "type": "damage",
+      "elapsedMs": 180393,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 5,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 260,
+      "type": "damage",
+      "elapsedMs": 180393,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 1,
+        "targetType": "townCenter",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 0,
+        "maxHp": 480
+      }
+    },
+    {
+      "seq": 261,
+      "type": "entity-killed",
+      "elapsedMs": 180393,
+      "data": {
+        "id": 1,
+        "kind": "building",
+        "type": "townCenter",
+        "label": "Town Center",
+        "faction": "player",
+        "tile": {
+          "x": 15,
+          "y": 15
+        }
+      }
+    },
+    {
+      "seq": 262,
+      "type": "defeat",
+      "elapsedMs": 180393,
+      "data": {
+        "resources": {
+          "food": 0,
+          "wood": 275,
+          "population": 1,
+          "cap": 0
+        }
+      }
+    }
+  ]
+}

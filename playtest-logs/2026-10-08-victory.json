@@ -1,0 +1,2245 @@
+{
+  "version": 1,
+  "createdAt": "2026-10-08T04:54:15.252Z",
+  "exportedAt": "2026-10-08T04:56:11.804Z",
+  "maxEvents": 2000,
+  "eventCount": 148,
+  "droppedCount": 0,
+  "events": [
+    {
+      "seq": 0,
+      "type": "match-start",
+      "elapsedMs": 0,
+      "data": {
+        "townCenterTile": {
+          "x": 15,
+          "y": 15
+        },
+        "enemyOutpostTile": {
+          "x": 26,
+          "y": 26
+        },
+        "villagers": 3,
+        "enemyUnits": 2,
+        "resources": {
+          "food": 200,
+          "wood": 200,
+          "population": 3,
+          "cap": 8
+        }
+      }
+    },
+    {
+      "seq": 1,
+      "type": "order",
+      "elapsedMs": 5103,
+      "data": {
+        "order": "gather",
+        "unitIds": [
+          3,
+          5
+        ],
+        "unitCount": 2,
+        "nodeId": "berry-west",
+        "resource": "food",
+        "tile": {
+          "x": 11,
+          "y": 17
+        }
+      }
+    },
+    {
+      "seq": 2,
+      "type": "order",
+      "elapsedMs": 7303,
+      "data": {
+        "order": "move",
+        "unitIds": [
+          4
+        ],
+        "unitCount": 1,
+        "tile": {
+          "x": 20,
+          "y": 12
+        }
+      }
+    },
+    {
+      "seq": 3,
+      "type": "order",
+      "elapsedMs": 8010,
+      "data": {
+        "order": "move",
+        "unitIds": [
+          4
+        ],
+        "unitCount": 1,
+        "tile": {
+          "x": 20,
+          "y": 13
+        }
+      }
+    },
+    {
+      "seq": 4,
+      "type": "order",
+      "elapsedMs": 8610,
+      "data": {
+        "order": "gather",
+        "unitIds": [
+          4
+        ],
+        "unitCount": 1,
+        "nodeId": "oak-east",
+        "resource": "wood",
+        "tile": {
+          "x": 21,
+          "y": 13
+        }
+      }
+    },
+    {
+      "seq": 5,
+      "type": "resource-delivered",
+      "elapsedMs": 11517,
+      "data": {
+        "unitId": 3,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 205,
+        "dropOffId": 1,
+        "nodeId": "berry-west"
+      }
+    },
+    {
+      "seq": 6,
+      "type": "resource-delivered",
+      "elapsedMs": 11517,
+      "data": {
+        "unitId": 5,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 210,
+        "dropOffId": 1,
+        "nodeId": "berry-west"
+      }
+    },
+    {
+      "seq": 7,
+      "type": "resource-delivered",
+      "elapsedMs": 15038,
+      "data": {
+        "unitId": 4,
+        "resource": "wood",
+        "amount": 5,
+        "storedAfter": 205,
+        "dropOffId": 1,
+        "nodeId": "oak-east"
+      }
+    },
+    {
+      "seq": 8,
+      "type": "order",
+      "elapsedMs": 15091,
+      "data": {
+        "order": "gather",
+        "unitIds": [
+          3
+        ],
+        "unitCount": 1,
+        "nodeId": "berry-north",
+        "resource": "food",
+        "tile": {
+          "x": 13,
+          "y": 11
+        }
+      }
+    },
+    {
+      "seq": 9,
+      "type": "resource-delivered",
+      "elapsedMs": 18225,
+      "data": {
+        "unitId": 5,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 215,
+        "dropOffId": 1,
+        "nodeId": "berry-west"
+      }
+    },
+    {
+      "seq": 10,
+      "type": "resource-delivered",
+      "elapsedMs": 20199,
+      "data": {
+        "unitId": 3,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 220,
+        "dropOffId": 1,
+        "nodeId": "berry-north"
+      }
+    },
+    {
+      "seq": 11,
+      "type": "resource-delivered",
+      "elapsedMs": 23026,
+      "data": {
+        "unitId": 4,
+        "resource": "wood",
+        "amount": 5,
+        "storedAfter": 210,
+        "dropOffId": 1,
+        "nodeId": "oak-east"
+      }
+    },
+    {
+      "seq": 12,
+      "type": "train-queued",
+      "elapsedMs": 23293,
+      "data": {
+        "unitType": "villager",
+        "buildingId": 1,
+        "buildingType": "townCenter",
+        "trainTime": 4000,
+        "queueLength": 1,
+        "resources": {
+          "food": 170,
+          "wood": 210,
+          "population": 3,
+          "cap": 8
+        }
+      }
+    },
+    {
+      "seq": 13,
+      "type": "resource-delivered",
+      "elapsedMs": 24933,
+      "data": {
+        "unitId": 5,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 175,
+        "dropOffId": 1,
+        "nodeId": "berry-west"
+      }
+    },
+    {
+      "seq": 14,
+      "type": "resource-delivered",
+      "elapsedMs": 25680,
+      "data": {
+        "unitId": 3,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 180,
+        "dropOffId": 1,
+        "nodeId": "berry-north"
+      }
+    },
+    {
+      "seq": 15,
+      "type": "unit-trained",
+      "elapsedMs": 27293,
+      "data": {
+        "unitId": 8,
+        "unitType": "villager",
+        "buildingId": 1,
+        "tile": {
+          "x": 16,
+          "y": 15
+        }
+      }
+    },
+    {
+      "seq": 16,
+      "type": "resource-delivered",
+      "elapsedMs": 31014,
+      "data": {
+        "unitId": 4,
+        "resource": "wood",
+        "amount": 5,
+        "storedAfter": 215,
+        "dropOffId": 1,
+        "nodeId": "oak-east"
+      }
+    },
+    {
+      "seq": 17,
+      "type": "resource-delivered",
+      "elapsedMs": 31161,
+      "data": {
+        "unitId": 3,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 185,
+        "dropOffId": 1,
+        "nodeId": "berry-north"
+      }
+    },
+    {
+      "seq": 18,
+      "type": "order",
+      "elapsedMs": 31201,
+      "data": {
+        "order": "gather",
+        "unitIds": [
+          8
+        ],
+        "unitCount": 1,
+        "nodeId": "oak-southwest",
+        "resource": "wood",
+        "tile": {
+          "x": 9,
+          "y": 21
+        }
+      }
+    },
+    {
+      "seq": 19,
+      "type": "resource-delivered",
+      "elapsedMs": 31641,
+      "data": {
+        "unitId": 5,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 190,
+        "dropOffId": 1,
+        "nodeId": "berry-west"
+      }
+    },
+    {
+      "seq": 20,
+      "type": "resource-delivered",
+      "elapsedMs": 36642,
+      "data": {
+        "unitId": 3,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 195,
+        "dropOffId": 1,
+        "nodeId": "berry-north"
+      }
+    },
+    {
+      "seq": 21,
+      "type": "resource-delivered",
+      "elapsedMs": 38349,
+      "data": {
+        "unitId": 5,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 200,
+        "dropOffId": 1,
+        "nodeId": "berry-west"
+      }
+    },
+    {
+      "seq": 22,
+      "type": "resource-delivered",
+      "elapsedMs": 38989,
+      "data": {
+        "unitId": 4,
+        "resource": "wood",
+        "amount": 5,
+        "storedAfter": 220,
+        "dropOffId": 1,
+        "nodeId": "oak-east"
+      }
+    },
+    {
+      "seq": 23,
+      "type": "build-started",
+      "elapsedMs": 40163,
+      "data": {
+        "buildingId": 9,
+        "buildingType": "barracks",
+        "tile": {
+          "x": 21,
+          "y": 15
+        },
+        "builderIds": [
+          8
+        ],
+        "resources": {
+          "food": 200,
+          "wood": 95,
+          "population": 4,
+          "cap": 8
+        }
+      }
+    },
+    {
+      "seq": 24,
+      "type": "resource-delivered",
+      "elapsedMs": 42123,
+      "data": {
+        "unitId": 3,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 205,
+        "dropOffId": 1,
+        "nodeId": "berry-north"
+      }
+    },
+    {
+      "seq": 25,
+      "type": "resource-delivered",
+      "elapsedMs": 45057,
+      "data": {
+        "unitId": 5,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 210,
+        "dropOffId": 1,
+        "nodeId": "berry-west"
+      }
+    },
+    {
+      "seq": 26,
+      "type": "resource-delivered",
+      "elapsedMs": 46964,
+      "data": {
+        "unitId": 4,
+        "resource": "wood",
+        "amount": 5,
+        "storedAfter": 100,
+        "dropOffId": 1,
+        "nodeId": "oak-east"
+      }
+    },
+    {
+      "seq": 27,
+      "type": "resource-delivered",
+      "elapsedMs": 47604,
+      "data": {
+        "unitId": 3,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 215,
+        "dropOffId": 1,
+        "nodeId": "berry-north"
+      }
+    },
+    {
+      "seq": 28,
+      "type": "build-completed",
+      "elapsedMs": 49098,
+      "data": {
+        "buildingId": 9,
+        "buildingType": "barracks",
+        "tile": {
+          "x": 21,
+          "y": 15
+        }
+      }
+    },
+    {
+      "seq": 29,
+      "type": "resource-delivered",
+      "elapsedMs": 51765,
+      "data": {
+        "unitId": 5,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 220,
+        "dropOffId": 1,
+        "nodeId": "berry-west"
+      }
+    },
+    {
+      "seq": 30,
+      "type": "resource-delivered",
+      "elapsedMs": 53085,
+      "data": {
+        "unitId": 3,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 225,
+        "dropOffId": 1,
+        "nodeId": "berry-north"
+      }
+    },
+    {
+      "seq": 31,
+      "type": "train-queued",
+      "elapsedMs": 53632,
+      "data": {
+        "unitType": "clubman",
+        "buildingId": 9,
+        "buildingType": "barracks",
+        "trainTime": 4000,
+        "queueLength": 1,
+        "resources": {
+          "food": 175,
+          "wood": 100,
+          "population": 4,
+          "cap": 8
+        }
+      }
+    },
+    {
+      "seq": 32,
+      "type": "resource-delivered",
+      "elapsedMs": 54952,
+      "data": {
+        "unitId": 4,
+        "resource": "wood",
+        "amount": 5,
+        "storedAfter": 105,
+        "dropOffId": 1,
+        "nodeId": "oak-east"
+      }
+    },
+    {
+      "seq": 33,
+      "type": "unit-trained",
+      "elapsedMs": 57632,
+      "data": {
+        "unitId": 10,
+        "unitType": "clubman",
+        "buildingId": 9,
+        "tile": {
+          "x": 22,
+          "y": 15
+        }
+      }
+    },
+    {
+      "seq": 34,
+      "type": "resource-delivered",
+      "elapsedMs": 58472,
+      "data": {
+        "unitId": 5,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 180,
+        "dropOffId": 1,
+        "nodeId": "berry-west"
+      }
+    },
+    {
+      "seq": 35,
+      "type": "resource-delivered",
+      "elapsedMs": 58566,
+      "data": {
+        "unitId": 3,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 185,
+        "dropOffId": 1,
+        "nodeId": "berry-north"
+      }
+    },
+    {
+      "seq": 36,
+      "type": "order",
+      "elapsedMs": 60220,
+      "data": {
+        "order": "gather",
+        "unitIds": [
+          8
+        ],
+        "unitCount": 1,
+        "nodeId": "oak-east",
+        "resource": "wood",
+        "tile": {
+          "x": 21,
+          "y": 13
+        }
+      }
+    },
+    {
+      "seq": 37,
+      "type": "order",
+      "elapsedMs": 62153,
+      "data": {
+        "order": "move",
+        "unitIds": [
+          10
+        ],
+        "unitCount": 1,
+        "tile": {
+          "x": 19,
+          "y": 16
+        }
+      }
+    },
+    {
+      "seq": 38,
+      "type": "node-depleted",
+      "elapsedMs": 62260,
+      "data": {
+        "nodeId": "berry-west",
+        "kind": "bush",
+        "resource": "food",
+        "tile": {
+          "x": 11,
+          "y": 17
+        }
+      }
+    },
+    {
+      "seq": 39,
+      "type": "resource-delivered",
+      "elapsedMs": 62940,
+      "data": {
+        "unitId": 4,
+        "resource": "wood",
+        "amount": 5,
+        "storedAfter": 110,
+        "dropOffId": 1,
+        "nodeId": "oak-east"
+      }
+    },
+    {
+      "seq": 40,
+      "type": "resource-delivered",
+      "elapsedMs": 63487,
+      "data": {
+        "unitId": 5,
+        "resource": "food",
+        "amount": 3,
+        "storedAfter": 188,
+        "dropOffId": 1,
+        "nodeId": "berry-west"
+      }
+    },
+    {
+      "seq": 41,
+      "type": "resource-delivered",
+      "elapsedMs": 63634,
+      "data": {
+        "unitId": 8,
+        "resource": "wood",
+        "amount": 5,
+        "storedAfter": 115,
+        "dropOffId": 1,
+        "nodeId": "oak-east"
+      }
+    },
+    {
+      "seq": 42,
+      "type": "resource-delivered",
+      "elapsedMs": 64047,
+      "data": {
+        "unitId": 3,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 193,
+        "dropOffId": 1,
+        "nodeId": "berry-north"
+      }
+    },
+    {
+      "seq": 43,
+      "type": "train-queued",
+      "elapsedMs": 64687,
+      "data": {
+        "unitType": "clubman",
+        "buildingId": 9,
+        "buildingType": "barracks",
+        "trainTime": 4000,
+        "queueLength": 1,
+        "resources": {
+          "food": 143,
+          "wood": 115,
+          "population": 5,
+          "cap": 8
+        }
+      }
+    },
+    {
+      "seq": 44,
+      "type": "train-queued",
+      "elapsedMs": 65047,
+      "data": {
+        "unitType": "clubman",
+        "buildingId": 9,
+        "buildingType": "barracks",
+        "trainTime": 4000,
+        "queueLength": 2,
+        "resources": {
+          "food": 93,
+          "wood": 115,
+          "population": 5,
+          "cap": 8
+        }
+      }
+    },
+    {
+      "seq": 45,
+      "type": "train-queued",
+      "elapsedMs": 65994,
+      "data": {
+        "unitType": "clubman",
+        "buildingId": 9,
+        "buildingType": "barracks",
+        "trainTime": 4000,
+        "queueLength": 3,
+        "resources": {
+          "food": 43,
+          "wood": 115,
+          "population": 5,
+          "cap": 8
+        }
+      }
+    },
+    {
+      "seq": 46,
+      "type": "node-depleted",
+      "elapsedMs": 67368,
+      "data": {
+        "nodeId": "oak-east",
+        "kind": "tree",
+        "resource": "wood",
+        "tile": {
+          "x": 21,
+          "y": 13
+        }
+      }
+    },
+    {
+      "seq": 47,
+      "type": "unit-trained",
+      "elapsedMs": 68688,
+      "data": {
+        "unitId": 11,
+        "unitType": "clubman",
+        "buildingId": 9,
+        "tile": {
+          "x": 22,
+          "y": 15
+        }
+      }
+    },
+    {
+      "seq": 48,
+      "type": "resource-delivered",
+      "elapsedMs": 69235,
+      "data": {
+        "unitId": 4,
+        "resource": "wood",
+        "amount": 3,
+        "storedAfter": 118,
+        "dropOffId": 1,
+        "nodeId": "oak-east"
+      }
+    },
+    {
+      "seq": 49,
+      "type": "resource-delivered",
+      "elapsedMs": 69235,
+      "data": {
+        "unitId": 8,
+        "resource": "wood",
+        "amount": 2,
+        "storedAfter": 120,
+        "dropOffId": 1,
+        "nodeId": "oak-east"
+      }
+    },
+    {
+      "seq": 50,
+      "type": "resource-delivered",
+      "elapsedMs": 69528,
+      "data": {
+        "unitId": 3,
+        "resource": "food",
+        "amount": 5,
+        "storedAfter": 48,
+        "dropOffId": 1,
+        "nodeId": "berry-north"
+      }
+    },
+    {
+      "seq": 51,
+      "type": "order",
+      "elapsedMs": 71822,
+      "data": {
+        "order": "gather",
+        "unitIds": [
+          4,
+          8
+        ],
+        "unitCount": 2,
+        "nodeId": "oak-southwest",
+        "resource": "wood",
+        "tile": {
+          "x": 9,
+          "y": 21
+        }
+      }
+    },
+    {
+      "seq": 52,
+      "type": "node-depleted",
+      "elapsedMs": 71848,
+      "data": {
+        "nodeId": "berry-north",
+        "kind": "bush",
+        "resource": "food",
+        "tile": {
+          "x": 13,
+          "y": 11
+        }
+      }
+    },
+    {
+      "seq": 53,
+      "type": "resource-delivered",
+      "elapsedMs": 72462,
+      "data": {
+        "unitId": 3,
+        "resource": "food",
+        "amount": 2,
+        "storedAfter": 50,
+        "dropOffId": 1,
+        "nodeId": "berry-north"
+      }
+    },
+    {
+      "seq": 54,
+      "type": "unit-trained",
+      "elapsedMs": 72688,
+      "data": {
+        "unitId": 12,
+        "unitType": "clubman",
+        "buildingId": 9,
+        "tile": {
+          "x": 22,
+          "y": 15
+        }
+      }
+    },
+    {
+      "seq": 55,
+      "type": "unit-trained",
+      "elapsedMs": 76689,
+      "data": {
+        "unitId": 13,
+        "unitType": "clubman",
+        "buildingId": 9,
+        "tile": {
+          "x": 22,
+          "y": 15
+        }
+      }
+    },
+    {
+      "seq": 56,
+      "type": "order",
+      "elapsedMs": 77890,
+      "data": {
+        "order": "gather",
+        "unitIds": [
+          3,
+          5
+        ],
+        "unitCount": 2,
+        "nodeId": "oak-southwest",
+        "resource": "wood",
+        "tile": {
+          "x": 9,
+          "y": 21
+        }
+      }
+    },
+    {
+      "seq": 57,
+      "type": "resource-delivered",
+      "elapsedMs": 82836,
+      "data": {
+        "unitId": 4,
+        "resource": "wood",
+        "amount": 5,
+        "storedAfter": 125,
+        "dropOffId": 1,
+        "nodeId": "oak-southwest"
+      }
+    },
+    {
+      "seq": 58,
+      "type": "resource-delivered",
+      "elapsedMs": 82836,
+      "data": {
+        "unitId": 8,
+        "resource": "wood",
+        "amount": 5,
+        "storedAfter": 130,
+        "dropOffId": 1,
+        "nodeId": "oak-southwest"
+      }
+    },
+    {
+      "seq": 59,
+      "type": "order",
+      "elapsedMs": 86984,
+      "data": {
+        "order": "attack",
+        "unitIds": [
+          3,
+          4,
+          5,
+          8,
+          10,
+          11,
+          12,
+          13
+        ],
+        "unitCount": 8,
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "tile": {
+          "x": 25,
+          "y": 24
+        }
+      }
+    },
+    {
+      "seq": 60,
+      "type": "damage",
+      "elapsedMs": 88878,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 10,
+        "targetType": "clubman",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 50,
+        "maxHp": 55
+      }
+    },
+    {
+      "seq": 61,
+      "type": "damage",
+      "elapsedMs": 88878,
+      "data": {
+        "attackerId": 10,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 58,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 62,
+      "type": "damage",
+      "elapsedMs": 89131,
+      "data": {
+        "attackerId": 11,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 51,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 63,
+      "type": "damage",
+      "elapsedMs": 89131,
+      "data": {
+        "attackerId": 12,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 44,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 64,
+      "type": "damage",
+      "elapsedMs": 89131,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 37,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 65,
+      "type": "damage",
+      "elapsedMs": 89491,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 10,
+        "targetType": "clubman",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 45,
+        "maxHp": 55
+      }
+    },
+    {
+      "seq": 66,
+      "type": "damage",
+      "elapsedMs": 89784,
+      "data": {
+        "attackerId": 10,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 30,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 67,
+      "type": "damage",
+      "elapsedMs": 89984,
+      "data": {
+        "attackerId": 6,
+        "attackerFaction": "enemy",
+        "targetId": 10,
+        "targetType": "clubman",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 40,
+        "maxHp": 55
+      }
+    },
+    {
+      "seq": 68,
+      "type": "damage",
+      "elapsedMs": 90038,
+      "data": {
+        "attackerId": 11,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 23,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 69,
+      "type": "damage",
+      "elapsedMs": 90038,
+      "data": {
+        "attackerId": 12,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 16,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 70,
+      "type": "damage",
+      "elapsedMs": 90038,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 9,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 71,
+      "type": "damage",
+      "elapsedMs": 90291,
+      "data": {
+        "attackerId": 5,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 7,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 72,
+      "type": "damage",
+      "elapsedMs": 90598,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 10,
+        "targetType": "clubman",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 35,
+        "maxHp": 55
+      }
+    },
+    {
+      "seq": 73,
+      "type": "damage",
+      "elapsedMs": 90651,
+      "data": {
+        "attackerId": 3,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 5,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 74,
+      "type": "damage",
+      "elapsedMs": 90691,
+      "data": {
+        "attackerId": 10,
+        "attackerFaction": "player",
+        "targetId": 6,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 0,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 75,
+      "type": "entity-killed",
+      "elapsedMs": 90691,
+      "data": {
+        "id": 6,
+        "kind": "unit",
+        "type": "raider",
+        "label": "Raider",
+        "faction": "enemy",
+        "tile": {
+          "x": 25,
+          "y": 24
+        }
+      }
+    },
+    {
+      "seq": 76,
+      "type": "order",
+      "elapsedMs": 91345,
+      "data": {
+        "order": "attack",
+        "unitIds": [
+          3,
+          4,
+          5,
+          8,
+          10,
+          11,
+          12,
+          13
+        ],
+        "unitCount": 8,
+        "targetId": 7,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "tile": {
+          "x": 26,
+          "y": 23
+        }
+      }
+    },
+    {
+      "seq": 77,
+      "type": "damage",
+      "elapsedMs": 91358,
+      "data": {
+        "attackerId": 10,
+        "attackerFaction": "player",
+        "targetId": 7,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 58,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 78,
+      "type": "damage",
+      "elapsedMs": 91358,
+      "data": {
+        "attackerId": 11,
+        "attackerFaction": "player",
+        "targetId": 7,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 51,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 79,
+      "type": "damage",
+      "elapsedMs": 91358,
+      "data": {
+        "attackerId": 12,
+        "attackerFaction": "player",
+        "targetId": 7,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 44,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 80,
+      "type": "damage",
+      "elapsedMs": 91358,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 7,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 37,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 81,
+      "type": "damage",
+      "elapsedMs": 91705,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 10,
+        "targetType": "clubman",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 30,
+        "maxHp": 55
+      }
+    },
+    {
+      "seq": 82,
+      "type": "damage",
+      "elapsedMs": 91972,
+      "data": {
+        "attackerId": 3,
+        "attackerFaction": "player",
+        "targetId": 7,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 35,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 83,
+      "type": "damage",
+      "elapsedMs": 91972,
+      "data": {
+        "attackerId": 4,
+        "attackerFaction": "player",
+        "targetId": 7,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 33,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 84,
+      "type": "damage",
+      "elapsedMs": 91972,
+      "data": {
+        "attackerId": 5,
+        "attackerFaction": "player",
+        "targetId": 7,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 31,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 85,
+      "type": "damage",
+      "elapsedMs": 91972,
+      "data": {
+        "attackerId": 8,
+        "attackerFaction": "player",
+        "targetId": 7,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 29,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 86,
+      "type": "damage",
+      "elapsedMs": 92265,
+      "data": {
+        "attackerId": 10,
+        "attackerFaction": "player",
+        "targetId": 7,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 22,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 87,
+      "type": "damage",
+      "elapsedMs": 92265,
+      "data": {
+        "attackerId": 11,
+        "attackerFaction": "player",
+        "targetId": 7,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 15,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 88,
+      "type": "damage",
+      "elapsedMs": 92265,
+      "data": {
+        "attackerId": 12,
+        "attackerFaction": "player",
+        "targetId": 7,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 8,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 89,
+      "type": "damage",
+      "elapsedMs": 92265,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 7,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 1,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 90,
+      "type": "damage",
+      "elapsedMs": 92812,
+      "data": {
+        "attackerId": 7,
+        "attackerFaction": "enemy",
+        "targetId": 10,
+        "targetType": "clubman",
+        "targetFaction": "player",
+        "amount": 5,
+        "hpAfter": 25,
+        "maxHp": 55
+      }
+    },
+    {
+      "seq": 91,
+      "type": "damage",
+      "elapsedMs": 92972,
+      "data": {
+        "attackerId": 3,
+        "attackerFaction": "player",
+        "targetId": 7,
+        "targetType": "raider",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 0,
+        "maxHp": 65
+      }
+    },
+    {
+      "seq": 92,
+      "type": "entity-killed",
+      "elapsedMs": 92972,
+      "data": {
+        "id": 7,
+        "kind": "unit",
+        "type": "raider",
+        "label": "Raider",
+        "faction": "enemy",
+        "tile": {
+          "x": 26,
+          "y": 23
+        }
+      }
+    },
+    {
+      "seq": 93,
+      "type": "order",
+      "elapsedMs": 94319,
+      "data": {
+        "order": "attack",
+        "unitIds": [
+          3,
+          4,
+          5,
+          8,
+          10,
+          11,
+          12,
+          13
+        ],
+        "unitCount": 8,
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "tile": {
+          "x": 26,
+          "y": 26
+        }
+      }
+    },
+    {
+      "seq": 94,
+      "type": "damage",
+      "elapsedMs": 94852,
+      "data": {
+        "attackerId": 10,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 233,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 95,
+      "type": "damage",
+      "elapsedMs": 94852,
+      "data": {
+        "attackerId": 11,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 226,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 96,
+      "type": "damage",
+      "elapsedMs": 94852,
+      "data": {
+        "attackerId": 12,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 219,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 97,
+      "type": "damage",
+      "elapsedMs": 94852,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 212,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 98,
+      "type": "damage",
+      "elapsedMs": 94892,
+      "data": {
+        "attackerId": 3,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 210,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 99,
+      "type": "damage",
+      "elapsedMs": 94892,
+      "data": {
+        "attackerId": 4,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 208,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 100,
+      "type": "damage",
+      "elapsedMs": 94892,
+      "data": {
+        "attackerId": 5,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 206,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 101,
+      "type": "damage",
+      "elapsedMs": 94892,
+      "data": {
+        "attackerId": 8,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 204,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 102,
+      "type": "damage",
+      "elapsedMs": 95759,
+      "data": {
+        "attackerId": 10,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 197,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 103,
+      "type": "damage",
+      "elapsedMs": 95759,
+      "data": {
+        "attackerId": 11,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 190,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 104,
+      "type": "damage",
+      "elapsedMs": 95759,
+      "data": {
+        "attackerId": 12,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 183,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 105,
+      "type": "damage",
+      "elapsedMs": 95759,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 176,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 106,
+      "type": "damage",
+      "elapsedMs": 95892,
+      "data": {
+        "attackerId": 3,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 174,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 107,
+      "type": "damage",
+      "elapsedMs": 95892,
+      "data": {
+        "attackerId": 4,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 172,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 108,
+      "type": "damage",
+      "elapsedMs": 95892,
+      "data": {
+        "attackerId": 5,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 170,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 109,
+      "type": "damage",
+      "elapsedMs": 95892,
+      "data": {
+        "attackerId": 8,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 168,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 110,
+      "type": "damage",
+      "elapsedMs": 96666,
+      "data": {
+        "attackerId": 10,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 161,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 111,
+      "type": "damage",
+      "elapsedMs": 96666,
+      "data": {
+        "attackerId": 11,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 154,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 112,
+      "type": "damage",
+      "elapsedMs": 96666,
+      "data": {
+        "attackerId": 12,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 147,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 113,
+      "type": "damage",
+      "elapsedMs": 96666,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 140,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 114,
+      "type": "damage",
+      "elapsedMs": 96892,
+      "data": {
+        "attackerId": 3,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 138,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 115,
+      "type": "damage",
+      "elapsedMs": 96892,
+      "data": {
+        "attackerId": 4,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 136,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 116,
+      "type": "damage",
+      "elapsedMs": 96892,
+      "data": {
+        "attackerId": 5,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 134,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 117,
+      "type": "damage",
+      "elapsedMs": 96892,
+      "data": {
+        "attackerId": 8,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 132,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 118,
+      "type": "damage",
+      "elapsedMs": 97573,
+      "data": {
+        "attackerId": 10,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 125,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 119,
+      "type": "damage",
+      "elapsedMs": 97573,
+      "data": {
+        "attackerId": 11,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 118,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 120,
+      "type": "damage",
+      "elapsedMs": 97573,
+      "data": {
+        "attackerId": 12,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 111,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 121,
+      "type": "damage",
+      "elapsedMs": 97573,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 104,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 122,
+      "type": "damage",
+      "elapsedMs": 97893,
+      "data": {
+        "attackerId": 3,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 102,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 123,
+      "type": "damage",
+      "elapsedMs": 97893,
+      "data": {
+        "attackerId": 4,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 100,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 124,
+      "type": "damage",
+      "elapsedMs": 97893,
+      "data": {
+        "attackerId": 5,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 98,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 125,
+      "type": "damage",
+      "elapsedMs": 97893,
+      "data": {
+        "attackerId": 8,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 96,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 126,
+      "type": "damage",
+      "elapsedMs": 98479,
+      "data": {
+        "attackerId": 10,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 89,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 127,
+      "type": "damage",
+      "elapsedMs": 98479,
+      "data": {
+        "attackerId": 11,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 82,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 128,
+      "type": "damage",
+      "elapsedMs": 98479,
+      "data": {
+        "attackerId": 12,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 75,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 129,
+      "type": "damage",
+      "elapsedMs": 98479,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 68,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 130,
+      "type": "damage",
+      "elapsedMs": 98893,
+      "data": {
+        "attackerId": 3,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 66,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 131,
+      "type": "damage",
+      "elapsedMs": 98893,
+      "data": {
+        "attackerId": 4,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 64,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 132,
+      "type": "damage",
+      "elapsedMs": 98893,
+      "data": {
+        "attackerId": 5,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 62,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 133,
+      "type": "damage",
+      "elapsedMs": 98893,
+      "data": {
+        "attackerId": 8,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 60,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 134,
+      "type": "damage",
+      "elapsedMs": 99386,
+      "data": {
+        "attackerId": 10,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 53,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 135,
+      "type": "damage",
+      "elapsedMs": 99386,
+      "data": {
+        "attackerId": 11,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 46,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 136,
+      "type": "damage",
+      "elapsedMs": 99386,
+      "data": {
+        "attackerId": 12,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 39,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 137,
+      "type": "damage",
+      "elapsedMs": 99386,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 32,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 138,
+      "type": "damage",
+      "elapsedMs": 99893,
+      "data": {
+        "attackerId": 3,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 30,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 139,
+      "type": "damage",
+      "elapsedMs": 99893,
+      "data": {
+        "attackerId": 4,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 28,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 140,
+      "type": "damage",
+      "elapsedMs": 99893,
+      "data": {
+        "attackerId": 5,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 26,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 141,
+      "type": "damage",
+      "elapsedMs": 99893,
+      "data": {
+        "attackerId": 8,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 2,
+        "hpAfter": 24,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 142,
+      "type": "damage",
+      "elapsedMs": 100293,
+      "data": {
+        "attackerId": 10,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 17,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 143,
+      "type": "damage",
+      "elapsedMs": 100293,
+      "data": {
+        "attackerId": 11,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 10,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 144,
+      "type": "damage",
+      "elapsedMs": 100293,
+      "data": {
+        "attackerId": 12,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 3,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 145,
+      "type": "damage",
+      "elapsedMs": 100293,
+      "data": {
+        "attackerId": 13,
+        "attackerFaction": "player",
+        "targetId": 2,
+        "targetType": "enemyOutpost",
+        "targetFaction": "enemy",
+        "amount": 7,
+        "hpAfter": 0,
+        "maxHp": 240
+      }
+    },
+    {
+      "seq": 146,
+      "type": "entity-killed",
+      "elapsedMs": 100293,
+      "data": {
+        "id": 2,
+        "kind": "building",
+        "type": "enemyOutpost",
+        "label": "Enemy Outpost",
+        "faction": "enemy",
+        "tile": {
+          "x": 26,
+          "y": 26
+        }
+      }
+    },
+    {
+      "seq": 147,
+      "type": "victory",
+      "elapsedMs": 100293,
+      "data": {
+        "resources": {
+          "food": 50,
+          "wood": 130,
+          "population": 8,
+          "cap": 8
+        }
+      }
+    }
+  ]
+}

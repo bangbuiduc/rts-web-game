@@ -8,6 +8,23 @@ export function createCommandPanel(handlers = {}) {
   const resourceEl = document.querySelector('#resource-info');
   const banner = document.querySelector('#banner');
   const exportButton = document.querySelector('#log-export');
+  const soundButton = document.querySelector('#sound-toggle');
+  const raidAlert = document.querySelector('#raid-alert');
+  const onboarding = document.querySelector('#onboarding');
+  const onboardingClose = document.querySelector('#onboarding-close');
+
+  function dismissOnboarding() {
+    onboarding?.classList.add('onboarding--hidden');
+  }
+
+  // Let the player close the quick-start card manually; it also auto-hides on
+  // the first issued order (wired from the scene). No persistence by design.
+  if (onboardingClose) {
+    onboardingClose.addEventListener('click', (event) => {
+      event.stopPropagation();
+      dismissOnboarding();
+    });
+  }
 
   // The export button is persistent (not part of the context-sensitive command
   // bar), so wiring it here keeps the train/build buttons untouched.
@@ -15,6 +32,20 @@ export function createCommandPanel(handlers = {}) {
     exportButton.addEventListener('click', (event) => {
       event.stopPropagation();
       handlers.onExportLog();
+    });
+  }
+
+  // Opt-in sound toggle. The click is the user gesture that unlocks Web Audio,
+  // so the scene only creates/resumes the AudioContext from inside this handler.
+  function renderSoundButton(enabled) {
+    if (!soundButton) return;
+    soundButton.setAttribute('aria-pressed', String(Boolean(enabled)));
+    soundButton.textContent = enabled ? '🔊 Âm thanh: Bật' : '🔇 Âm thanh: Tắt';
+  }
+  if (soundButton && handlers.onToggleSound) {
+    soundButton.addEventListener('click', (event) => {
+      event.stopPropagation();
+      renderSoundButton(handlers.onToggleSound());
     });
   }
 
@@ -85,5 +116,32 @@ export function createCommandPanel(handlers = {}) {
       banner.textContent = text;
       banner.className = `banner banner--${kind} banner--visible`;
     },
+
+    /**
+     * Show the raid countdown / raid-begins alert. `level` is 'warn' (pending
+     * countdown) or 'alert' (raid underway). An empty message clears it.
+     */
+    setRaidAlert(message, level = 'warn') {
+      if (!raidAlert) return;
+      if (!message) {
+        this.clearRaidAlert();
+        return;
+      }
+      raidAlert.textContent = message;
+      raidAlert.className = `raid-alert raid-alert--${level} raid-alert--visible`;
+    },
+
+    /** Hide the raid alert. */
+    clearRaidAlert() {
+      if (!raidAlert) return;
+      raidAlert.textContent = '';
+      raidAlert.className = 'raid-alert';
+    },
+
+    /** Reflect the current sound on/off state on the toggle button. */
+    setSoundEnabled: renderSoundButton,
+
+    /** Dismiss the first-session onboarding card (close button or first order). */
+    dismissOnboarding,
   };
 }

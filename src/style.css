@@ -95,11 +95,18 @@ body { min-width: 360px; min-height: 240px; }
   cursor: not-allowed;
 }
 
-.log-export {
+.toolbar {
   position: fixed;
   z-index: 6;
   top: 18px;
   right: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.tool-btn {
   padding: 9px 13px;
   border: 1px solid #5b6b45;
   border-radius: 7px;
@@ -112,8 +119,12 @@ body { min-width: 360px; min-height: 240px; }
   transition: filter 0.12s ease;
 }
 
-.log-export:hover { filter: brightness(1.18); }
-.log-export:active { filter: brightness(0.95); }
+.tool-btn:hover { filter: brightness(1.18); }
+.tool-btn:active { filter: brightness(0.95); }
+.tool-btn[aria-pressed='true'] {
+  border-color: #e7b24a;
+  background: linear-gradient(#4a5a2f, #313f22);
+}
 
 .feedback {
   position: fixed;
@@ -156,3 +167,185 @@ body { min-width: 360px; min-height: 240px; }
 .banner--visible { opacity: 1; }
 .banner--win { border: 2px solid #7fcf5f; }
 .banner--lose { border: 2px solid #d45b4a; }
+
+/* First-session onboarding card: unobtrusive, dismissible, no persistence. */
+.onboarding {
+  position: fixed;
+  z-index: 7;
+  right: 18px;
+  bottom: 18px;
+  width: min(320px, calc(100vw - 36px));
+  padding: 14px 16px 13px;
+  border: 1px solid rgb(231 210 141 / 35%);
+  border-radius: 10px;
+  background: rgb(20 29 22 / 94%);
+  box-shadow: 0 10px 36px rgb(0 0 0 / 38%);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.onboarding--hidden {
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+}
+
+.onboarding__close {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: #d6c58b;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.onboarding__close:hover { background: rgb(231 210 141 / 14%); }
+
+.onboarding__title {
+  margin: 0 0 8px;
+  color: #e7d28d;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.onboarding__goal {
+  margin: 0 0 8px;
+  font-size: 13px;
+}
+
+.onboarding__steps {
+  margin: 0 0 8px;
+  padding-left: 18px;
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+.onboarding__steps li { margin-bottom: 3px; }
+
+.onboarding__hint {
+  margin: 0;
+  color: #bdc5b3;
+  font-size: 11px;
+}
+
+/* Raid countdown + raid-begins alert. Top-center so it reads immediately, but
+   compact and auto-clearing so it never blocks the map. */
+.raid-alert {
+  position: fixed;
+  z-index: 8;
+  top: 18px;
+  left: 50%;
+  max-width: calc(100vw - 36px);
+  padding: 9px 16px;
+  transform: translate(-50%, -10px);
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 800;
+  text-align: center;
+  white-space: nowrap;
+  box-shadow: 0 8px 28px rgb(0 0 0 / 40%);
+  opacity: 0;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  pointer-events: none;
+}
+
+.raid-alert--visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.raid-alert--warn {
+  border: 1px solid #e7b24a;
+  background: rgb(58 42 16 / 95%);
+  color: #ffd98a;
+}
+
+.raid-alert--alert {
+  border: 1px solid #d45b4a;
+  background: rgb(58 20 16 / 96%);
+  color: #ffb3a4;
+}
+
+/* Keyboard-focus visibility for all interactive controls (accessibility). */
+.cmd-btn:focus-visible,
+.tool-btn:focus-visible,
+.onboarding__close:focus-visible {
+  outline: 2px solid #ffe797;
+  outline-offset: 2px;
+}
+
+/* Stop touch browsers from hijacking drags/scroll over the game canvas so pan
+   and marquee input reach Phaser on touch devices. */
+#game canvas { touch-action: none; }
+
+/* --- Responsive HUD / controls ---------------------------------------------
+   Desktop stays primary; these rules keep the overlay usable when the viewport
+   gets narrow (small laptops, tablets, phones) by shrinking controls, letting
+   the command bar wrap, and reclaiming space from secondary chrome. */
+@media (max-width: 760px) {
+  .hud {
+    top: 10px;
+    left: 10px;
+    max-width: calc(100vw - 20px);
+    padding: 9px 11px;
+  }
+
+  .hud__help { font-size: 10px; }
+
+  .toolbar {
+    top: 10px;
+    right: 10px;
+    gap: 6px;
+  }
+
+  .tool-btn {
+    padding: 7px 9px;
+    font-size: 11px;
+  }
+
+  .command-panel {
+    bottom: 10px;
+    max-width: calc(100vw - 20px);
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 7px;
+    padding: 8px 9px;
+  }
+
+  .cmd-btn {
+    padding: 8px 11px;
+    font-size: 12px;
+  }
+
+  .feedback { bottom: 96px; }
+
+  .onboarding {
+    right: 10px;
+    bottom: 76px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* The pointer/keyboard hint line is desktop-oriented; drop it on phones to
+     keep the HUD from covering the map. Core info (resources, tile) remains. */
+  .hud__help { display: none; }
+  /* At phone widths the full-width HUD and toolbar cannot share the top row. */
+  .toolbar { top: 108px; }
+  .raid-alert { top: 146px; font-size: 12.5px; white-space: normal; }
+  .onboarding { font-size: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .onboarding,
+  .raid-alert,
+  .cmd-btn,
+  .tool-btn { transition: none; }
+}

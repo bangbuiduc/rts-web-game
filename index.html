@@ -16,7 +16,22 @@
         <div id="tile-info">Di chuyển chuột trên bản đồ</div>
         <div class="hud__help">Click trái: chọn · Kéo trái: khoanh vùng chọn · Click phải: ra lệnh (đi/đốn/hái/đánh) · Kéo phải: di chuyển bản đồ · Con lăn: thu phóng · Esc: bỏ chọn</div>
       </aside>
-      <button id="log-export" class="log-export" type="button" title="Tải nhật ký trận đấu (JSON)">⬇ Nhật ký trận (JSON)</button>
+      <div class="toolbar">
+        <button id="sound-toggle" class="tool-btn" type="button" aria-pressed="false" title="Bật/tắt âm thanh">🔇 Âm thanh: Tắt</button>
+        <button id="log-export" class="tool-btn" type="button" title="Tải nhật ký trận đấu (JSON)">⬇ Nhật ký trận (JSON)</button>
+      </div>
+      <section id="onboarding" class="onboarding" aria-label="Hướng dẫn nhanh">
+        <button id="onboarding-close" class="onboarding__close" type="button" aria-label="Đóng hướng dẫn">×</button>
+        <h2 class="onboarding__title">Bắt đầu nhanh</h2>
+        <p class="onboarding__goal">🎯 Mục tiêu: phá hủy <strong>Enemy Outpost</strong>. Mất Town Center là thua.</p>
+        <ul class="onboarding__steps">
+          <li>Cho Villager <strong>đốn cây</strong> (Wood) và <strong>hái quả</strong> (Food) để tích tài nguyên.</li>
+          <li>Xây <strong>Barracks</strong>, huấn luyện <strong>Clubman</strong>, rồi tiến đánh Outpost.</li>
+          <li>⚠ Sau <strong>90 giây</strong> Raider sẽ chủ động tấn công — kịp dựng quân phòng thủ.</li>
+        </ul>
+        <p class="onboarding__hint">Mẹo: click phải để ra lệnh. Bảng này tự ẩn khi bạn ra lệnh đầu tiên.</p>
+      </section>
+      <div id="raid-alert" class="raid-alert" role="alert" aria-live="assertive"></div>
       <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
       <div id="command-panel" class="command-panel" aria-label="Bảng lệnh"></div>
       <div id="banner" class="banner" role="alert"></div>

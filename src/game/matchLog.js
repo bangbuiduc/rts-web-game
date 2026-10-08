@@ -86,6 +86,7 @@ export const EVENT_TYPES = Object.freeze({
   UNIT_TRAINED: 'unit-trained',
   BUILD_STARTED: 'build-started',
   BUILD_COMPLETED: 'build-completed',
+  ENEMY_REINFORCED: 'enemy-reinforced',
   DAMAGE: 'damage',
   ENTITY_KILLED: 'entity-killed',
   VICTORY: 'victory',

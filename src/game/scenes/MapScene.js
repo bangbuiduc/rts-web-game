@@ -21,8 +21,16 @@ import {
   formatCost,
 } from '../rules.js';
 import { canAfford, checkPurchase, subtractCost } from '../economy.js';
-import { applyDamage, tileDistance } from '../combat.js';
+import { applyDamage, readyToStrikeOnCommand, tileDistance } from '../combat.js';
 import { chooseTarget, engageableTargets, isForceAggressive } from '../enemyAI.js';
+import { REINFORCE_MAX, reinforcementDecision } from '../reinforcement.js';
+import {
+  RAID_PHASE,
+  countdownSeconds,
+  isEarlyProvoke,
+  raidWarningMessage,
+  raidWarningState,
+} from '../guidance.js';
 import { normalizeRect, rectContainsPoint, isDragSelection } from '../selection.js';
 import { createRallyPoint, rallyOrderForUnit } from '../rally.js';
 import {
@@ -45,6 +53,7 @@ import {
 } from '../visuals.js';
 import { createCommandPanel } from '../ui/commandPanel.js';
 import { createMatchLog, downloadMatchLog, EVENT_TYPES } from '../matchLog.js';
+import { createAudioCues } from '../audio.js';
 
 const DRAG_THRESHOLD = 5;
 
@@ -64,10 +73,15 @@ export class MapScene extends Phaser.Scene {
     this.hoveredTile = null;
     this.elapsedMs = 0;
     this.enemyAggressive = false;
+    this.raidPhase = RAID_PHASE.CALM;
+    this.raidCountdownSeconds = null;
+    this.reinforcementsSpawned = 0;
+    this.lastReinforceMs = null;
   }
 
   create() {
     this.matchLog = createMatchLog();
+    this.audio = createAudioCues();
     createTerrain(this, this.mapOriginX, this.mapOriginY);
     this.hoverGraphic = this.add.graphics().setDepth(5000);
     this.commandGraphic = this.add.graphics().setDepth(5001);
@@ -81,7 +95,9 @@ export class MapScene extends Phaser.Scene {
       onBuildBarracks: () => this.beginPlacement('barracks'),
       onTrainClubman: () => this.trainFromSelection('clubman'),
       onExportLog: () => this.exportMatchLog(),
+      onToggleSound: () => this.audio.toggle(),
     });
+    this.panel.setSoundEnabled(this.audio.isEnabled());
 
     this.spawnInitialWorld();
     this.logMatchStart();
@@ -219,6 +235,8 @@ export class MapScene extends Phaser.Scene {
     for (const unit of this.units) this.updateUnit(unit, delta);
     for (const building of this.buildings) this.updateBuilding(building, delta);
     this.updateEnemyAI();
+    this.updateReinforcement();
+    this.updateGuidance();
     this.pruneDead();
     this.drawPaths();
     this.drawRallyPoints();
@@ -404,6 +422,7 @@ export class MapScene extends Phaser.Scene {
       buildingType: building.type,
       tile: { ...building.tile },
     });
+    this.cue('build');
     this.panel.setFeedback(`${building.label} đã hoàn thành.`);
     this.refreshPanel();
   }
@@ -428,6 +447,7 @@ export class MapScene extends Phaser.Scene {
       const result = applyDamage(target.hp, unit.attackDamage);
       target.hp = result.hp;
       updateHpBar(target.hpBar, target.hp, target.maxHp);
+      this.cue('attack');
       this.logEvent(EVENT_TYPES.DAMAGE, {
         attackerId: unit.id,
         attackerFaction: unit.faction,
@@ -475,6 +495,85 @@ export class MapScene extends Phaser.Scene {
     }
   }
 
+  // --- Outpost reinforcement --------------------------------------------
+
+  // Bounded reinforcement: once the garrison is aggressive and the Outpost still
+  // stands, it tops its losses back up to a small, finite number of raiders so a
+  // defender who held the initial push still faces pressure. The decision is
+  // pure (reinforcement.js); the spawn reuses the normal addUnit path so the new
+  // raider is picked up by updateEnemyAI like any other garrison unit. The
+  // total/interval/concurrency bounds guarantee no endless spawns and no frame
+  // spam (at most one spawn per qualifying tick, REINFORCE_MAX over the match).
+  updateReinforcement() {
+    const outpostAlive = Boolean(this.enemyOutpost && this.enemyOutpost.hp > 0);
+    const livingEnemyUnits = this.units.filter((unit) => unit.faction === 'enemy' && unit.hp > 0).length;
+    const decision = reinforcementDecision({
+      aggressive: this.enemyAggressive,
+      outpostAlive,
+      elapsedMs: this.elapsedMs,
+      spawnedCount: this.reinforcementsSpawned,
+      lastSpawnMs: this.lastReinforceMs,
+      livingEnemyUnits,
+    });
+    if (!decision.spawn) return;
+
+    const spot = this.freeTileNear(ENEMY_OUTPOST_TILE) ?? ENEMY_OUTPOST_TILE;
+    const raider = this.addUnit('raider', spot, 'enemy');
+    this.reinforcementsSpawned += 1;
+    this.lastReinforceMs = this.elapsedMs;
+    this.updateDepth(raider);
+    this.logEvent(EVENT_TYPES.ENEMY_REINFORCED, {
+      unitId: raider.id,
+      unitType: 'raider',
+      tile: { ...raider.tile },
+      wave: decision.wave,
+      totalWaves: REINFORCE_MAX,
+    });
+    this.panel.setFeedback(`⚠ Outpost tăng viện! Raider ${decision.wave}/${REINFORCE_MAX} áp sát.`);
+  }
+
+  // --- Onboarding + raid warning ----------------------------------------
+
+  // Reads the SAME live clock + aggression latch the enemy AI acts on, so the
+  // warning tracks the real raid trigger and cannot drift from it. The scene
+  // only surfaces phase transitions; guidance.js owns the phase/message logic.
+  updateGuidance() {
+    const { phase, remainingMs } = raidWarningState({
+      elapsedMs: this.elapsedMs,
+      aggressive: this.enemyAggressive,
+    });
+
+    if (phase === this.raidPhase) {
+      // Keep the countdown live, refreshing only when the whole second changes.
+      if (phase === RAID_PHASE.WARNING) {
+        const seconds = countdownSeconds(remainingMs);
+        if (seconds !== this.raidCountdownSeconds) {
+          this.raidCountdownSeconds = seconds;
+          this.panel.setRaidAlert(raidWarningMessage({ phase, remainingMs }), 'warn');
+        }
+      }
+      return;
+    }
+
+    this.raidPhase = phase;
+    if (phase === RAID_PHASE.WARNING) {
+      this.raidCountdownSeconds = countdownSeconds(remainingMs);
+      this.panel.setRaidAlert(raidWarningMessage({ phase, remainingMs }), 'warn');
+    } else if (phase === RAID_PHASE.ACTIVE) {
+      const earlyProvoke = isEarlyProvoke({ elapsedMs: this.elapsedMs });
+      const message = raidWarningMessage({ phase, earlyProvoke });
+      this.cue('raid');
+      this.panel.setRaidAlert(message, 'alert');
+      this.panel.setFeedback(message);
+      // Let the raid-begins alert register, then clear so it never blocks the map.
+      this.time.delayedCall(4500, () => {
+        if (this.raidPhase === RAID_PHASE.ACTIVE) this.panel.clearRaidAlert();
+      });
+    } else {
+      this.panel.clearRaidAlert();
+    }
+  }
+
   // --- Buildings tick (training) ----------------------------------------
 
   updateBuilding(building, delta) {
@@ -500,6 +599,7 @@ export class MapScene extends Phaser.Scene {
       });
     }
     this.panel.setFeedback(`${unit.label} đã sẵn sàng.`);
+    if (building.faction === 'player') this.cue('train');
     if (building.faction === 'player' && building.rally) this.applyRallyOrder(unit, building.rally);
     return unit;
   }
@@ -599,11 +699,14 @@ export class MapScene extends Phaser.Scene {
   }
 
   commandAttack(unit, target) {
+    // Capture the prior order before we overwrite it so a re-issued attack on
+    // the same target does not re-prime the cooldown (click-spam bypass).
+    const prime = readyToStrikeOnCommand(unit.order, target.id);
     unit.order = { type: 'attack', targetId: target.id, phase: 'approaching' };
     const distance = tileDistance(this.liveTile(unit), target.tile);
     if (distance <= unit.attackRange + 0.05) {
       unit.order.phase = 'attacking';
-      unit.attackElapsed = unit.attackCooldown;
+      if (prime) unit.attackElapsed = unit.attackCooldown;
       unit.path = [];
     } else {
       this.routeUnitAdjacentTo(unit, target.tile);
@@ -754,6 +857,7 @@ export class MapScene extends Phaser.Scene {
     if (entity) {
       if (!additive) this.selectedIds.clear();
       this.selectedIds.add(entity.id);
+      this.cue('select');
     } else if (!additive) {
       this.selectedIds.clear();
     }
@@ -770,6 +874,9 @@ export class MapScene extends Phaser.Scene {
     const tile = this.tileAtPointer(pointer);
     if (!tile) return;
 
+    // The player is issuing a command — retire the first-session onboarding card.
+    if (selected.length) this.panel.dismissOnboarding();
+
     const enemy = this.enemyEntityAt(world.x, world.y);
     const node = this.nodes.find((candidate) => candidate.amount > 0 && candidate.tile.x === tile.x && candidate.tile.y === tile.y);
 
@@ -777,6 +884,7 @@ export class MapScene extends Phaser.Scene {
     if (rallyBuildings.length && !enemy) this.setRallyPoint(rallyBuildings, tile, node);
 
     if (selected.length) {
+      this.cue('command');
       if (enemy) {
         const attackers = selected.filter((unit) => unit.attackDamage > 0);
         attackers.forEach((unit) => this.commandAttack(unit, enemy));
@@ -1049,6 +1157,12 @@ export class MapScene extends Phaser.Scene {
     this.matchLog?.record(type, this.elapsedMs, data);
   }
 
+  // Fire a synthesized audio cue. A no-op unless the player enabled sound; the
+  // audio module throttles repeats so high-frequency events never stack.
+  cue(name) {
+    this.audio?.play(name);
+  }
+
   resourceSnapshot() {
     return {
       food: this.resources[RESOURCE_TYPES.FOOD] ?? 0,
@@ -1121,12 +1235,14 @@ export class MapScene extends Phaser.Scene {
     if (!this.enemyOutpost || this.enemyOutpost.hp <= 0) {
       this.gameOver = true;
       this.logEvent(EVENT_TYPES.VICTORY, { resources: this.resourceSnapshot() });
+      this.cue('victory');
       this.panel.showBanner('CHIẾN THẮNG! Enemy Outpost đã bị phá hủy.', 'win');
       return;
     }
     if (!this.townCenter || this.townCenter.hp <= 0) {
       this.gameOver = true;
       this.logEvent(EVENT_TYPES.DEFEAT, { resources: this.resourceSnapshot() });
+      this.cue('defeat');
       this.panel.showBanner('THẤT BẠI! Town Center đã bị phá hủy.', 'lose');
     }
   }

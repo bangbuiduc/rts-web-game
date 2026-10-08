@@ -9,6 +9,13 @@ import {
 
 // All Phaser drawing lives here so the scene can focus on game logic. Every
 // factory returns the parts the scene needs to position, re-colour, or update.
+//
+// Art note: these are original, authored vector sprites drawn at runtime from
+// Phaser Shapes + Graphics (no image files, no copyrighted assets, no network).
+// They keep the game's billboard-on-isometric-ground style: figures and
+// buildings face the camera over the iso grass grid, with light/shade faces,
+// faction colours, and silhouette cues (workers are slim; military units are
+// broader, helmeted, and armed) so the two sides read apart at a glance.
 
 const HALF_W = TILE_WIDTH / 2;
 const HALF_H = TILE_HEIGHT / 2;
@@ -25,13 +32,41 @@ export function createTerrain(scene, originX, originY) {
       const cx = point.x + originX;
       const cy = point.y + originY;
       terrain.fillStyle(tileColor(tileX, tileY), 1);
-      terrain.lineStyle(1, 0x314c2c, 0.55);
+      terrain.lineStyle(1, 0x314c2c, 0.5);
       diamondPath(terrain, cx, cy);
       terrain.fillPath();
       terrain.strokePath();
+      // Authored lighting + ground detail so the grass is not a flat colour.
+      terrain.lineStyle(1, 0x9ec077, 0.22);
+      terrain.beginPath();
+      terrain.moveTo(cx - HALF_W, cy);
+      terrain.lineTo(cx, cy - HALF_H);
+      terrain.lineTo(cx + HALF_W, cy);
+      terrain.strokePath();
+      tileDecoration(terrain, cx, cy, tileX, tileY);
     }
   }
   return terrain;
+}
+
+// Deterministic, cheap per-tile scatter (grass tufts / pebbles) hashed from the
+// tile coordinate so the ground reads as authored texture, not a flat fill.
+function tileDecoration(g, cx, cy, x, y) {
+  const hash = Math.abs((x * 73856093) ^ (y * 19349663));
+  const roll = hash % 100;
+  if (roll < 15) {
+    const bx = cx + (((hash >> 3) % 9) - 4);
+    const by = cy + (((hash >> 6) % 5) - 2);
+    g.lineStyle(1, 0x37612c, 0.55);
+    g.beginPath();
+    g.moveTo(bx - 2, by + 2); g.lineTo(bx - 2, by - 2);
+    g.moveTo(bx, by + 2); g.lineTo(bx, by - 4);
+    g.moveTo(bx + 2, by + 2); g.lineTo(bx + 2, by - 2);
+    g.strokePath();
+  } else if (roll < 21) {
+    g.fillStyle(0x9a9478, 0.5);
+    g.fillCircle(cx + (((hash >> 4) % 10) - 5), cy + (((hash >> 7) % 4) - 1), 1.6);
+  }
 }
 
 function diamondPath(graphic, cx, cy, halfW = HALF_W, halfH = HALF_H) {
@@ -72,61 +107,206 @@ export function updateHpBar(hpBar, hp, maxHp) {
   hpBar.fill.fillColor = ratio > 0.5 ? 0x6fcf5f : ratio > 0.25 ? 0xe0c84a : 0xd45b4a;
 }
 
+// --- Units -----------------------------------------------------------------
+
+function unitPalette(type, friendly) {
+  if (type === 'villager') {
+    return friendly
+      ? { body: 0x4a74c8, trim: 0x6a93df, legs: 0x3b5a92, skin: 0xe8bd91, cap: 0xd8a24b, crest: 0xffe08a, outline: 0x24324d }
+      : { body: 0x9a5bb0, trim: 0xb57bcb, legs: 0x6e4080, skin: 0xcf9f78, cap: 0x7a4a8c, crest: 0xd9a7e8, outline: 0x3a2447 };
+  }
+  return friendly
+    ? { body: 0x3f8d58, trim: 0x5fae74, legs: 0x2c6440, skin: 0xe8bd91, cap: 0xb9c0c7, crest: 0xffe08a, outline: 0x1d3d2a }
+    : { body: 0xc14b38, trim: 0xd96f55, legs: 0x7f2f22, skin: 0xcf9f78, cap: 0x6a3a32, crest: 0xf0b7a0, outline: 0x3c1714 };
+}
+
 /**
  * Build a unit sprite (villager / clubman / enemy raider).
  * Returns the container plus the pieces the scene toggles each frame.
  */
 export function createUnitSprite(scene, type, faction) {
   const friendly = faction === 'player';
-  const bodyColor = type === 'villager'
-    ? (friendly ? 0x527cb8 : 0x8a5a9c)
-    : (friendly ? 0x3f7d52 : 0xb24b3a);
-  const bodyStroke = friendly ? 0x24324d : 0x3c1714;
+  const military = type === 'clubman' || type === 'raider';
+  const c = unitPalette(type, friendly);
 
-  const selectionRing = scene.add.ellipse(0, 0, 30, 13, 0xfff1a1, 0.12)
+  const selectionRing = scene.add.ellipse(0, 0, military ? 32 : 28, 14, 0xfff1a1, 0.12)
     .setStrokeStyle(2, friendly ? 0xfff1a1 : 0xff9c8a, 0.95)
     .setVisible(false);
-  const shadow = scene.add.ellipse(0, 0, 20, 8, 0x142013, 0.55);
-  const body = scene.add.ellipse(0, -9, 15, 17, bodyColor, 1).setStrokeStyle(2, bodyStroke);
-  const head = scene.add.circle(0, -20, 6, friendly ? 0xe8bd91 : 0xcf9f78, 1).setStrokeStyle(1, 0x4f382a);
+  const shadow = scene.add.ellipse(0, 0, military ? 24 : 20, 9, 0x101a0e, 0.5);
+  const parts = [selectionRing, shadow];
 
-  const parts = [selectionRing, shadow, body];
+  // Legs give a planted stance and a readable base.
+  parts.push(scene.add.rectangle(-4, -3, 5, 9, c.legs, 1).setStrokeStyle(1, c.outline));
+  parts.push(scene.add.rectangle(4, -3, 5, 9, c.legs, 1).setStrokeStyle(1, c.outline));
+
+  // Torso — military units are broader for a clearly different silhouette.
+  const torsoW = military ? 19 : 14;
+  parts.push(scene.add.ellipse(0, -12, torsoW, 18, c.body, 1).setStrokeStyle(2, c.outline));
+
   let carryCue = null;
-  if (type === 'clubman' || (type === 'raider')) {
-    // A simple club to read as a combat unit.
-    const club = scene.add.rectangle(10, -16, 4, 14, 0x7a5330, 1).setStrokeStyle(1, 0x3e2a17).setRotation(0.5);
-    parts.push(club);
-  }
-  if (type === 'villager') {
-    carryCue = scene.add.rectangle(10, -13, 15, 7, 0xa46934, 1).setStrokeStyle(1, 0x4a2b17).setRotation(-0.28).setVisible(false);
+  if (military) {
+    // Pauldrons widen the shoulders; a club marks the combat role.
+    parts.push(scene.add.circle(-9, -16, 4, c.trim, 1).setStrokeStyle(1, c.outline));
+    parts.push(scene.add.circle(9, -16, 4, c.trim, 1).setStrokeStyle(1, c.outline));
+    parts.push(scene.add.rectangle(12, -18, 4, 16, 0x7a5330, 1).setStrokeStyle(1, 0x3e2a17).setRotation(0.5));
+    parts.push(scene.add.circle(16, -25, 4, 0x8a6a40, 1).setStrokeStyle(1, 0x3e2a17));
+  } else {
+    // A tool slung on the back reads as a worker; the carry crate toggles on.
+    parts.push(scene.add.rectangle(-10, -16, 3, 14, 0x6d4a2c, 1).setStrokeStyle(1, 0x3e2a17).setRotation(-0.4));
+    carryCue = scene.add.rectangle(10, -14, 14, 8, 0xa46934, 1).setStrokeStyle(1, 0x4a2b17).setRotation(-0.28).setVisible(false);
     parts.push(carryCue);
   }
-  parts.push(head);
 
-  const hpBar = makeHpBar(scene, 22);
+  parts.push(scene.add.circle(0, -24, 6, c.skin, 1).setStrokeStyle(1, 0x4f382a));
+  if (military) {
+    parts.push(scene.add.ellipse(0, -27, 13, 8, c.cap, 1).setStrokeStyle(1, c.outline));
+    parts.push(scene.add.triangle(0, -33, -3, 5, 3, 5, 0, -5, c.crest, 1));
+  } else {
+    parts.push(scene.add.ellipse(0, -27, 12, 6, c.cap, 1).setStrokeStyle(1, c.outline));
+  }
+
+  const hpBar = makeHpBar(scene, military ? 24 : 22);
   parts.push(hpBar.bg, hpBar.fill);
 
   const container = scene.add.container(0, 0, parts);
   return { container, selectionRing, carryCue, hpBar };
 }
 
-/** Town Center sprite + selection ring (player can select it to train). */
-export function createTownCenter(scene) {
-  const selectionRing = scene.add.ellipse(0, -6, 70, 34, 0xfff1a1, 0.08)
-    .setStrokeStyle(2, 0xfff1a1, 0.95).setVisible(false);
-  const parts = [
-    selectionRing,
-    scene.add.ellipse(0, 1, 54, 19, 0x26351f, 0.55),
-    scene.add.rectangle(0, -13, 37, 26, 0xc5aa72, 1).setStrokeStyle(2, 0x68543a),
-    scene.add.triangle(0, -34, -24, 15, 24, 15, 0, -17, 0x875b37, 1).setStrokeStyle(2, 0x583b2a),
-    scene.add.rectangle(0, -15, 9, 15, 0x755039, 1),
-    scene.add.rectangle(16, -19, 7, 8, 0x8ba9a0, 1).setStrokeStyle(1, 0x584b39),
-  ];
-  const hpBar = makeHpBar(scene, 44);
-  hpBar.bg.y = -48;
-  hpBar.fill.y = -48;
+// --- Buildings --------------------------------------------------------------
+
+function makeBuilding(scene, draw, opts = {}) {
+  const {
+    selectable = true,
+    ringW = 70, ringH = 34, ringY = -6,
+    shadowW = 52, shadowH = 18,
+    hpWidth = 42, hpY = -54,
+  } = opts;
+  const parts = [];
+  let selectionRing = null;
+  if (selectable) {
+    selectionRing = scene.add.ellipse(0, ringY, ringW, ringH, 0xfff1a1, 0.08)
+      .setStrokeStyle(2, 0xfff1a1, 0.95).setVisible(false);
+    parts.push(selectionRing);
+  }
+  parts.push(scene.add.ellipse(0, 3, shadowW, shadowH, 0x0f170c, 0.45));
+  const g = scene.add.graphics();
+  draw(g);
+  parts.push(g);
+  const hpBar = makeHpBar(scene, hpWidth);
+  hpBar.bg.y = hpY;
+  hpBar.fill.y = hpY;
   parts.push(hpBar.bg, hpBar.fill);
   return { container: scene.add.container(0, 0, parts), selectionRing, hpBar };
+}
+
+function courses(g, left, right, top, bottom, step, color, alpha) {
+  g.lineStyle(1, color, alpha);
+  for (let yy = top + step; yy < bottom; yy += step) {
+    g.beginPath();
+    g.moveTo(left, yy);
+    g.lineTo(right, yy);
+    g.strokePath();
+  }
+}
+
+/** Player Town Center: a stone hall with a timber roof and a gold pennant. */
+function drawTownCenter(g) {
+  g.fillStyle(0x7d6a48, 1);
+  g.fillPoints([{ x: -26, y: 2 }, { x: 0, y: 12 }, { x: 26, y: 2 }, { x: 0, y: -8 }], true);
+  g.fillStyle(0xbfa775, 1);
+  g.fillRect(-22, -28, 44, 28);
+  g.fillStyle(0x9c875c, 1);
+  g.fillRect(-22, -28, 13, 28);
+  g.lineStyle(2, 0x5c4a30, 1);
+  g.strokeRect(-22, -28, 44, 28);
+  courses(g, -22, 22, -28, 0, 7, 0x5c4a30, 0.32);
+  const roof = [{ x: -27, y: -28 }, { x: 27, y: -28 }, { x: 17, y: -46 }, { x: -17, y: -46 }];
+  g.fillStyle(0x9a5b36, 1);
+  g.fillPoints(roof, true);
+  g.lineStyle(2, 0x4a2b17, 1);
+  g.strokePoints(roof, true);
+  g.fillStyle(0x7a4527, 1);
+  g.fillRect(-17, -46, 34, 3);
+  g.fillStyle(0x6f5a86, 1);
+  g.fillRect(-16, -22, 6, 6);
+  g.fillRect(10, -22, 6, 6);
+  g.fillStyle(0x4a3120, 1);
+  g.fillRect(-6, -14, 12, 14);
+  g.lineStyle(1, 0x2c1c10, 1);
+  g.strokeRect(-6, -14, 12, 14);
+  g.lineStyle(2, 0x3a2a18, 1);
+  g.beginPath();
+  g.moveTo(18, -28);
+  g.lineTo(18, -52);
+  g.strokePath();
+  g.fillStyle(0xe7c66a, 1);
+  g.fillPoints([{ x: 18, y: -52 }, { x: 31, y: -48 }, { x: 18, y: -44 }], true);
+}
+
+/** Player Barracks: a timber hut with a red war-shield emblem over the door. */
+function drawBarracks(g) {
+  g.fillStyle(0x6f5e3f, 1);
+  g.fillPoints([{ x: -22, y: 2 }, { x: 0, y: 11 }, { x: 22, y: 2 }, { x: 0, y: -7 }], true);
+  g.fillStyle(0xa07b4c, 1);
+  g.fillRect(-19, -24, 38, 24);
+  g.fillStyle(0x82623a, 1);
+  g.fillRect(-19, -24, 11, 24);
+  g.lineStyle(2, 0x543a20, 1);
+  g.strokeRect(-19, -24, 38, 24);
+  g.lineStyle(1, 0x543a20, 0.4);
+  for (let xx = -11; xx < 19; xx += 8) {
+    g.beginPath();
+    g.moveTo(xx, -24);
+    g.lineTo(xx, 0);
+    g.strokePath();
+  }
+  const roof = [{ x: -23, y: -24 }, { x: 23, y: -24 }, { x: 14, y: -39 }, { x: -14, y: -39 }];
+  g.fillStyle(0x6d4a2c, 1);
+  g.fillPoints(roof, true);
+  g.lineStyle(2, 0x3e2a17, 1);
+  g.strokePoints(roof, true);
+  g.fillStyle(0x4a3120, 1);
+  g.fillRect(-5, -12, 10, 12);
+  g.fillStyle(0x8a3b32, 1);
+  g.fillPoints([{ x: 0, y: -23 }, { x: 6, y: -20 }, { x: 6, y: -15 }, { x: 0, y: -12 }, { x: -6, y: -15 }, { x: -6, y: -20 }], true);
+  g.lineStyle(1.5, 0xe9e0c4, 0.95);
+  g.beginPath();
+  g.moveTo(-4, -21); g.lineTo(4, -14);
+  g.moveTo(4, -21); g.lineTo(-4, -14);
+  g.strokePath();
+}
+
+/** Enemy Outpost (the objective): a dark-red watchtower with a red war flag. */
+function drawOutpost(g) {
+  g.fillStyle(0x3f2422, 1);
+  g.fillPoints([{ x: -20, y: 2 }, { x: 0, y: 10 }, { x: 20, y: 2 }, { x: 0, y: -6 }], true);
+  g.fillStyle(0x8a4a46, 1);
+  g.fillRect(-15, -40, 30, 40);
+  g.fillStyle(0x6a3734, 1);
+  g.fillRect(-15, -40, 9, 40);
+  g.lineStyle(2, 0x3f1f1f, 1);
+  g.strokeRect(-15, -40, 30, 40);
+  courses(g, -15, 15, -40, 0, 8, 0x3f1f1f, 0.4);
+  g.fillStyle(0x7d4340, 1);
+  g.lineStyle(1, 0x3f1f1f, 1);
+  for (let bx = -15; bx < 15; bx += 10) {
+    g.fillRect(bx, -46, 6, 8);
+    g.strokeRect(bx, -46, 6, 8);
+  }
+  g.fillStyle(0x201010, 1);
+  g.fillRect(-4, -30, 8, 12);
+  g.lineStyle(2, 0x2a1414, 1);
+  g.beginPath();
+  g.moveTo(0, -46);
+  g.lineTo(0, -64);
+  g.strokePath();
+  g.fillStyle(0xd45b4a, 1);
+  g.fillPoints([{ x: 0, y: -64 }, { x: 17, y: -59 }, { x: 0, y: -54 }], true);
+}
+
+/** Town Center sprite + selection ring (player can select it to train). */
+export function createTownCenter(scene) {
+  return makeBuilding(scene, drawTownCenter, { ringW: 72, ringH: 36, ringY: -8, shadowW: 54, shadowH: 19, hpWidth: 44, hpY: -54 });
 }
 
 /**
@@ -134,38 +314,15 @@ export function createTownCenter(scene) {
  * foundation (via container.setAlpha) and restores it to full on completion.
  */
 export function createBarracks(scene) {
-  const selectionRing = scene.add.ellipse(0, -4, 60, 30, 0xfff1a1, 0.08)
-    .setStrokeStyle(2, 0xfff1a1, 0.95).setVisible(false);
-  const parts = [
-    selectionRing,
-    scene.add.ellipse(0, 1, 46, 17, 0x26351f, 0.5),
-    scene.add.rectangle(0, -11, 34, 22, 0x9c7b4e, 1).setStrokeStyle(2, 0x5c4428),
-    scene.add.triangle(0, -27, -20, 10, 20, 10, 0, -12, 0x6d4a2c, 1).setStrokeStyle(2, 0x3e2a17),
-    scene.add.rectangle(-9, -24, 5, 10, 0x5a3c22, 1),
-    scene.add.rectangle(9, -24, 5, 10, 0x5a3c22, 1),
-  ];
-  const hpBar = makeHpBar(scene, 38);
-  hpBar.bg.y = -40;
-  hpBar.fill.y = -40;
-  parts.push(hpBar.bg, hpBar.fill);
-  return { container: scene.add.container(0, 0, parts), selectionRing, hpBar };
+  return makeBuilding(scene, drawBarracks, { ringW: 60, ringH: 30, ringY: -4, shadowW: 46, shadowH: 17, hpWidth: 38, hpY: -46 });
 }
 
 /** Enemy outpost (the objective). */
 export function createOutpost(scene) {
-  const parts = [
-    scene.add.ellipse(0, 1, 44, 17, 0x2a1414, 0.55),
-    scene.add.rectangle(0, -16, 24, 34, 0x7d4a4a, 1).setStrokeStyle(2, 0x3f1f1f),
-    scene.add.triangle(0, -36, -16, 6, 16, 6, 0, -10, 0x9c3b3b, 1).setStrokeStyle(2, 0x3f1f1f),
-    scene.add.rectangle(0, -44, 2, 12, 0x3f1f1f, 1),
-    scene.add.triangle(0, -48, 0, -6, 12, -2, 0, 2, 0xd45b4a, 1),
-  ];
-  const hpBar = makeHpBar(scene, 34);
-  hpBar.bg.y = -54;
-  hpBar.fill.y = -54;
-  parts.push(hpBar.bg, hpBar.fill);
-  return { container: scene.add.container(0, 0, parts), hpBar };
+  return makeBuilding(scene, drawOutpost, { selectable: false, shadowW: 42, shadowH: 16, hpWidth: 34, hpY: -54 });
 }
+
+// --- Resource nodes ---------------------------------------------------------
 
 /** Tree (Wood node). */
 export function createTree(scene) {
@@ -173,9 +330,11 @@ export function createTree(scene) {
   const trunk = scene.add.rectangle(0, -15, 9, 24, 0x79502d, 1).setStrokeStyle(1, 0x4a341f);
   const stump = scene.add.rectangle(0, -6, 16, 9, 0x79502d, 1).setStrokeStyle(1, 0x4a341f).setVisible(false);
   const canopy = [
-    scene.add.circle(-8, -34, 13, 0x416c36, 1).setStrokeStyle(2, 0x294b27),
-    scene.add.circle(8, -36, 14, 0x4c7d3b, 1).setStrokeStyle(2, 0x294b27),
-    scene.add.circle(0, -46, 13, 0x5b8a45, 1).setStrokeStyle(2, 0x315b2d),
+    scene.add.circle(-9, -33, 13, 0x3b6531, 1).setStrokeStyle(2, 0x294b27),
+    scene.add.circle(9, -35, 14, 0x4c7d3b, 1).setStrokeStyle(2, 0x294b27),
+    scene.add.circle(0, -47, 14, 0x5b8a45, 1).setStrokeStyle(2, 0x315b2d),
+    scene.add.circle(-3, -42, 6, 0x6fa052, 1),
+    scene.add.circle(5, -40, 5, 0x6fa052, 1),
   ];
   const container = scene.add.container(0, 0, [shadow, trunk, stump, ...canopy]);
   return { container, shadow, trunk, stump, canopy };
@@ -187,11 +346,11 @@ export function createBerryBush(scene) {
   const foliage = scene.add.ellipse(0, -11, 28, 22, 0x3f6b3a, 1).setStrokeStyle(2, 0x274a24);
   const stump = scene.add.ellipse(0, -5, 18, 10, 0x4a5a38, 1).setVisible(false);
   const berries = [
-    scene.add.circle(-6, -12, 2.5, 0xc0405a, 1),
-    scene.add.circle(5, -9, 2.5, 0xc0405a, 1),
-    scene.add.circle(0, -16, 2.5, 0xd4556e, 1),
-    scene.add.circle(7, -16, 2.5, 0xc0405a, 1),
-    scene.add.circle(-7, -5, 2.5, 0xd4556e, 1),
+    scene.add.circle(-6, -12, 2.6, 0xc0405a, 1),
+    scene.add.circle(5, -9, 2.6, 0xc0405a, 1),
+    scene.add.circle(0, -16, 2.6, 0xd4556e, 1),
+    scene.add.circle(7, -16, 2.6, 0xc0405a, 1),
+    scene.add.circle(-7, -5, 2.6, 0xd4556e, 1),
   ];
   const container = scene.add.container(0, 0, [shadow, foliage, stump, ...berries]);
   return { container, shadow, foliage, stump, berries };
